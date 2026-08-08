@@ -30,10 +30,9 @@ jobs:
 
       - run: npm ci
 
+      # Vite's base is './', so this build works at the /CHOURANGI/ subpath
+      # without any Pages-specific configuration.
       - run: npm run build
-        env:
-          # Serves the site from /<repo>/ rather than the domain root.
-          GITHUB_PAGES: 'true'
 
       - uses: actions/configure-pages@v5
 

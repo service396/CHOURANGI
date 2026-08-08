@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+
+/* Self-hosted: no third-party font connection at runtime. */
+@import '@fontsource/instrument-serif/latin-400.css';
+@import '@fontsource-variable/inter/wght.css';
+
+/* ------------------------------------------------------------------ tokens */
+@theme {
+  --color-ivory: #f3eee5;
+  --color-parchment: #ded4c4;
+  --color-charcoal: #232321;
+  --color-green: #29483d;
+  --color-rattan: #b18d67;
+  --color-timber: #43372d;
+  --color-brass: #a98757;
+  --color-ceramic: #173a4a;
+  --color-ceramic-light: #214a5c;
+
+  --font-display: 'Instrument Serif', 'Libre Caslon Display', 'EB Garamond', Georgia, serif;
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Page gutter, one value everything aligns to. Declared here so Tailwind
+     knows the token exists; the responsive steps live in @layer base below,
+     because @theme blocks are hoisted out of media queries. */
+  --gutter: 1.5rem;
+  --gutter-right: 1.5rem;
+}
+
+/* ------------------------------------------------------------------- base */
+@layer base {
+  :root {
+    color-scheme: light;
+    --gutter: 1.5rem;
+    --gutter-right: 1.5rem;
+  }
+
+  /* The right gutter widens from lg to reserve a lane for the chapter rail. */
+  @media (min-width: 768px) {
+    :root {
+      --gutter: 2.5rem;
+      --gutter-right: 2.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    :root {
+      --gutter-right: 5.5rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    :root {
+      --gutter: 4rem;
+      --gutter-right: 7rem;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-ivory);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* Lenis drives scroll; the native smooth behaviour fights it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-ceramic);
+    color: var(--color-ivory);
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote {
+    margin: 0;
+  }
+
+  /* Hide the native cursor only when the custom one is actually running. */
+  body[data-cursor='on'],
+  body[data-cursor='on'] * {
+    cursor: none;
+  }
+}
+
+/* --------------------------------------------------------------- utilities */
+@utility page-x {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter-right);
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 0.94;
+}
+
+@utility meta {
+  font-family: var(--font-sans);
+  font-size: clamp(0.625rem, 0.72vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@utility body-copy {
+  font-size: clamp(1rem, 1.18vw, 1.25rem);
+  line-height: 1.62;
+  letter-spacing: -0.005em;
+}
+
+@utility rule-h {
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.28;
+}
+
+/* ------------------------------------------------------- animation helpers */
+/* Elements start hidden only when JS will animate them in. Without JS, or
+   before hydration, nothing is left invisible. */
+@layer components {
+  .js .mask-line > span,
+  .js .reveal-line > span,
+  .js .reveal-fade,
+  .js .reveal-mask {
+    will-change: transform, opacity, clip-path;
+  }
+
+  /* A line mask. The vertical padding gives ascenders and descenders room so
+     tight display line-heights are never clipped; the negative margin keeps
+     the type on its baseline grid. */
+  .mask-line,
+  .reveal-line {
+    display: block;
+    overflow: hidden;
+    padding-block: 0.1em;
+    margin-block: -0.1em;
+  }
+  .mask-line > span,
+  .reveal-line > span {
+    display: block;
+  }
+  .js .mask-line > span,
+  .js .reveal-line > span {
+    transform: translate3d(0, 118%, 0);
+  }
+
+  .js .reveal-fade {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0);
+  }
+
+  .js .reveal-mask {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+/* --------------------------------------------------------- reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .mask-line > span,
+  .js .reveal-line > span,
+  .js .reveal-fade,
+  .js .reveal-mask {
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+    will-change: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

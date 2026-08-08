@@ -23,18 +23,6 @@ export const CHAPTERS = [
   { id: 'about', number: '04', label: 'Chourangi' },
 ]
 
-export const PREMISE = {
-  meta: '300 years / one evolving city',
-  headline: 'Calcutta never had one cuisine.',
-  lines: ['It had arrivals.', 'Traders. Travellers. Empires. Immigrants.'],
-  body: [
-    'Each brought ingredients, techniques and habits. Over generations, those influences became something unmistakably its own.',
-    'At Chourangi, those stories continue on the plate.',
-  ],
-  carouselMeta: 'Three dishes / three stories',
-  carouselCta: 'Read the story',
-}
-
 export const HILSA = {
   id: 'hilsa',
   number: '01',
@@ -304,7 +292,7 @@ export const FOOTER = {
     {
       title: 'This page',
       items: [
-        { label: 'Three dishes', href: '#stories' },
+        { label: 'Three dishes', href: '#hilsa' },
         { label: 'Three hundred years', href: '#about' },
       ],
     },

@@ -2,7 +2,6 @@ import { Fragment, useEffect } from 'react'
 import { CHAPTER_LIST } from './data/content'
 import { ChapterRail, Cursor, Grain, Nav } from './components/Chrome'
 import { DishSlideshow } from './components/DishSlideshow'
-import { Premise } from './sections/Premise'
 import { DishSection } from './sections/DishSection'
 import { IngredientSection } from './sections/IngredientSection'
 import { CultureSection } from './sections/CultureSection'
@@ -44,18 +43,21 @@ export default function App() {
       <ChapterRail />
 
       <a
-        href="#stories"
+        href="#hilsa"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-charcoal focus:px-4 focus:py-2 focus:text-ivory"
       >
-        Skip to the stories
+        Skip to the first dish
       </a>
 
       <main id="top">
-        <Premise />
-
         {CHAPTER_LIST.map((chapter, i) => (
           <Fragment key={chapter.id}>
-            <DishSlideshow chapter={chapter} tone={SLIDESHOW_TONE[i]} preload={i === 0} />
+            <DishSlideshow
+              chapter={chapter}
+              tone={SLIDESHOW_TONE[i]}
+              preload={i === 0}
+              lead={i === 0}
+            />
             <DishSection chapter={chapter} variant={i} />
             <IngredientSection chapter={chapter} variant={i} />
             <CultureSection chapter={chapter} variant={i} />

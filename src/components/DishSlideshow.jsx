@@ -31,7 +31,7 @@ const SURFACES = {
  * frame and pushes out toward the viewport edges as the frame opens, so no
  * type is ever set over the dish itself.
  */
-export function DishSlideshow({ chapter, tone = 'ivory', preload = false }) {
+export function DishSlideshow({ chapter, tone = 'ivory', preload = false, lead = false }) {
   const { counter, title, line, slides } = chapter.slideshow
   const reduced = useReducedMotion()
   const desktop = useDesktopPointer()
@@ -45,6 +45,9 @@ export function DishSlideshow({ chapter, tone = 'ivory', preload = false }) {
   const barRef = useRef(null)
   const prevIndex = useRef(0)
   const transitionAt = useRef(0)
+
+  // The opening chapter carries the page's only h1.
+  const Heading = lead ? 'h1' : 'h2'
 
   const count = slides.length
   const go = useCallback(
@@ -269,7 +272,7 @@ export function DishSlideshow({ chapter, tone = 'ivory', preload = false }) {
         data-slide-typeblock
         className="page-x relative mx-auto flex w-full max-w-[100rem] flex-col gap-5 md:flex-row md:items-end md:justify-between md:gap-16"
       >
-        <h2
+        <Heading
           data-slide-title
           id={`${chapter.id}-title`}
           className="display text-[clamp(2.25rem,5.4vw,5rem)] leading-[0.9]"
@@ -279,7 +282,7 @@ export function DishSlideshow({ chapter, tone = 'ivory', preload = false }) {
               <span data-slide-line>{word}</span>
             </span>
           ))}
-        </h2>
+        </Heading>
 
         <div data-slide-aside className="flex shrink-0 flex-col gap-3 pb-1 md:max-w-[26ch] md:items-end md:text-right">
           <span className="mask-line">

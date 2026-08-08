@@ -1,4 +1,11 @@
 import { SITE } from '../data/content'
+// Imported rather than referenced by path. A literal "/brand/…" in an inline
+// style is a runtime string Vite never rewrites, so it broke the moment the
+// site was served from a subpath instead of the domain root. Importing lets
+// the bundler emit a URL that is correct wherever the site is deployed.
+import markSrc from '../assets/brand/chourangi-mark.png'
+import wordmarkSrc from '../assets/brand/chourangi-wordmark.png'
+import lockupSrc from '../assets/brand/chourangi-lockup.png'
 
 /**
  * The Chourangi identity, drawn from the supplied artwork rather than set in a
@@ -13,9 +20,9 @@ import { SITE } from '../data/content'
  * channel is the mask with no processing at runtime.
  */
 const ASSETS = {
-  mark: { src: '/brand/chourangi-mark.png', ratio: 225 / 297 },
-  wordmark: { src: '/brand/chourangi-wordmark.png', ratio: 742 / 71 },
-  lockup: { src: '/brand/chourangi-lockup.png', ratio: 742 / 404 },
+  mark: { src: markSrc, ratio: 225 / 297 },
+  wordmark: { src: wordmarkSrc, ratio: 742 / 71 },
+  lockup: { src: lockupSrc, ratio: 742 / 404 },
 }
 
 function Masked({ asset, height, width, className = '' }) {

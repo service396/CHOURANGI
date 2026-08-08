@@ -50,13 +50,15 @@ src/
   lib/
     motion.js       easings, durations, the shared reveal, GSAP scope helper
     useSmoothScroll.js   Lenis wired into the GSAP ticker
+  assets/brand/     the Chourangi mark, wordmark and lockup
   components/
     Chrome.jsx      nav, chapter rail, custom cursor, paper grain
+    Logo.jsx        the identity, masked so it takes the surrounding colour
     DishSlideshow.jsx    the chapter opener
     primitives.jsx  Figure, Lines, Meta, Body, Caption, ArrowLink
   sections/
-    Hero, Premise, DishSection, IngredientSection,
-    CultureSection, InterpretationSection, About, Closing
+    DishSection, IngredientSection, CultureSection,
+    InterpretationSection, About, Closing
 ```
 
 The four chapter section types each carry three layouts, selected by chapter index, so

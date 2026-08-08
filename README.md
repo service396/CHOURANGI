@@ -15,6 +15,9 @@ npm run build
 npm run preview
 ```
 
+Deployed at **https://service396.github.io/CHOURANGI/** — `.github/workflows/deploy.yml`
+rebuilds and republishes on every push.
+
 ## Photography
 
 Every image is an original asset generated for this project through the Higgsfield MCP.
@@ -53,7 +56,7 @@ src/
     primitives.jsx  Figure, Lines, Meta, Body, Caption, ArrowLink
   sections/
     Hero, Premise, DishSection, IngredientSection,
-    CultureSection, InterpretationSection, About, Visit
+    CultureSection, InterpretationSection, About, Closing
 ```
 
 The four chapter section types each carry three layouts, selected by chapter index, so
@@ -68,7 +71,7 @@ Hilsa, Gondhoraj and Railway never repeat the same composition.
 | Charcoal | `#232321` | text, Railway chapter opener |
 | Heritage green | `#29483D` | Gondhoraj culture |
 | Rattan | `#B18D67` | rules, metadata |
-| Dark timber | `#43372D` | Railway culture, visit, footer |
+| Dark timber | `#43372D` | Railway culture, closing, footer |
 | Aged brass | `#A98757` | sparing accents |
 | Ceramic blue | `#173A4A` | metadata, chapter numbers, Gondhoraj opener |
 

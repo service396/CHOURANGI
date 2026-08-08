@@ -7,17 +7,15 @@ export const SITE = {
   name: 'Chourangi',
   city: 'London',
   address: '3 Old Quebec Street',
-  // External destinations. Confirm these against the live Chourangi site before launch.
-  bookingUrl: 'https://www.chourangi.co.uk/',
+  // Confirm against the live Chourangi site before launch.
   siteUrl: 'https://www.chourangi.co.uk/',
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Chourangi%2C%203%20Old%20Quebec%20Street%2C%20London',
 }
 
 // `short` is used below the md breakpoint, where the full labels collide.
+// No booking link: this page is read at the table, in the restaurant.
 export const NAV = [
   { label: 'Stories', short: 'Stories', href: '#stories' },
   { label: 'About', short: 'About', href: '#about' },
-  { label: 'Book a Table', short: 'Book', href: '#visit' },
 ]
 
 export const CHAPTERS = [
@@ -275,29 +273,26 @@ export const ABOUT = {
   ],
 }
 
-export const VISIT = {
+export const CLOSING = {
   meta: '3 Old Quebec Street / London',
   headline: ['The stories continue', 'at the table.'],
-  primary: { label: 'Book a table', href: SITE.bookingUrl },
-  secondary: { label: 'Explore Chourangi', href: SITE.siteUrl },
+  body: 'Three dishes, three fragments of a city that has never stopped changing. The rest of the menu carries its own.',
+  link: { label: 'Explore Chourangi', href: SITE.siteUrl },
   image: 'tableLaid',
 }
 
 export const FOOTER = {
   columns: [
     {
-      title: 'Find us',
+      title: 'Here',
       items: [
-        { label: '3 Old Quebec Street', href: SITE.mapsUrl },
+        { label: '3 Old Quebec Street', href: null },
         { label: 'London', href: null },
       ],
     },
     {
       title: 'Chourangi',
-      items: [
-        { label: 'Book a table', href: SITE.bookingUrl },
-        { label: 'Main site', href: SITE.siteUrl },
-      ],
+      items: [{ label: 'Main site', href: SITE.siteUrl }],
     },
     {
       title: 'This page',

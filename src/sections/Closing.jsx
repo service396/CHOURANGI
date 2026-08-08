@@ -1,40 +1,47 @@
-import { FOOTER, SITE, VISIT } from '../data/content'
+import { CLOSING, FOOTER, SITE } from '../data/content'
 import { ArrowLink, Figure, Lines, Meta } from '../components/primitives'
 import { revealIn, useGsap } from '../lib/motion'
 
-export function Visit() {
+/**
+ * The closing moment. This page is read in the restaurant, at the table, so
+ * there is nothing to book — the section resolves the narrative and hands the
+ * reader back to the meal in front of them.
+ */
+export function Closing() {
   const scope = useGsap(() => {
     revealIn(scope.current, { start: 'top 78%' })
   })
 
   return (
-    <section ref={scope} id="visit" data-tone="dark" aria-labelledby="visit-title" className="relative bg-timber text-ivory">
+    <section
+      ref={scope}
+      id="closing"
+      data-tone="dark"
+      aria-labelledby="closing-title"
+      className="relative bg-timber text-ivory"
+    >
       <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[12svh] pt-[18svh]">
         <div className="col-span-12 lg:col-span-7">
-          <Meta className="reveal-fade mb-10 text-rattan">{VISIT.meta}</Meta>
+          <Meta className="reveal-fade mb-10 text-rattan">{CLOSING.meta}</Meta>
           <Lines
             as="h2"
-            id="visit-title"
-            lines={VISIT.headline}
+            id="closing-title"
+            lines={CLOSING.headline}
             className="text-[clamp(2.6rem,6.6vw,6rem)] leading-[0.92]"
           />
         </div>
 
-        <div className="col-span-12 mt-14 flex flex-col gap-7 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end lg:items-end">
+        <div className="col-span-12 mt-14 flex flex-col gap-8 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end">
+          <p className="reveal-fade body-copy max-w-[40ch] opacity-85">{CLOSING.body}</p>
           <div className="reveal-fade">
-            <ArrowLink href={VISIT.primary.href} external size="lg" className="text-ivory">
-              {VISIT.primary.label}
-            </ArrowLink>
-          </div>
-          <div className="reveal-fade">
-            <ArrowLink href={VISIT.secondary.href} external className="text-ivory/80">
-              {VISIT.secondary.label}
+            <ArrowLink href={CLOSING.link.href} external className="text-ivory/80">
+              {CLOSING.link.label}
             </ArrowLink>
           </div>
         </div>
       </div>
 
-      <Figure name={VISIT.image} ratio={2.7} sizes="100vw" imgClassName="object-[center_55%]" />
+      <Figure name={CLOSING.image} ratio={2.7} sizes="100vw" imgClassName="object-[center_55%]" />
     </section>
   )
 }

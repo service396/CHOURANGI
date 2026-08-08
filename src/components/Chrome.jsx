@@ -62,7 +62,7 @@ export function Cursor() {
     const x = gsap.quickTo(el, 'x', { duration: 0.22, ease: 'power3.out' })
     const y = gsap.quickTo(el, 'y', { duration: 0.22, ease: 'power3.out' })
 
-    const LABELS = { link: '', slide: 'View', next: 'Next', prev: 'Prev', book: 'Book', story: 'Discover' }
+    const LABELS = { link: '', slide: 'View', next: 'Next', prev: 'Prev', story: 'Discover' }
 
     const onMove = (event) => {
       x(event.clientX)

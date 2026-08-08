@@ -1,2 +1,0 @@
-Vendored Higgsfield assets land here when you run `npm run vendor:assets`.
-Until then the site serves them from the CDN URLs in src/data/media.js.

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap, useDesktopPointer, useReducedMotion } from '../lib/motion'
-import { CHAPTERS, NAV, SITE } from '../data/content'
+import { CHAPTERS, NAV } from '../data/content'
+import { Logo } from './Logo'
 
 /**
  * Which tone sits under the top edge of the viewport right now.
@@ -141,12 +142,12 @@ export function Nav() {
             : 'linear-gradient(to bottom, rgba(243,238,229,0.96) 0%, rgba(243,238,229,0.86) 46%, rgba(243,238,229,0) 100%)',
         }}
       />
-      <a
-        href="#top"
-        data-cursor="link"
-        className="display shrink-0 text-[clamp(0.95rem,1.5vw,1.3rem)] uppercase !tracking-[0.2em] md:!tracking-[0.34em]"
-      >
-        {SITE.name}
+      <a href="#top" data-cursor="link" aria-label="Chourangi — back to top" className="shrink-0">
+        <Logo
+          markSize="1.7em"
+          className="text-[clamp(0.95rem,1.5vw,1.3rem)]"
+          wordmarkClassName="tracking-[0.2em] md:tracking-[0.34em]"
+        />
       </a>
 
       <nav aria-label="Primary">

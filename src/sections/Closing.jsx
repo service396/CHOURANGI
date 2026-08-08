@@ -1,5 +1,6 @@
 import { CLOSING, FOOTER, SITE } from '../data/content'
 import { ArrowLink, Figure, Lines, Meta } from '../components/primitives'
+import { Logo } from '../components/Logo'
 import { revealIn, useGsap } from '../lib/motion'
 
 /**
@@ -51,7 +52,12 @@ export function Footer() {
     <footer data-tone="dark" className="bg-timber pb-10 pt-[10svh] text-ivory">
       <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12">
         <div className="col-span-12 lg:col-span-5">
-          <p className="display text-[clamp(1.4rem,2.4vw,2rem)] !tracking-[0.3em] uppercase">{SITE.name}</p>
+          <Logo
+            variant="stacked"
+            markSize="3.1em"
+            className="!items-start text-[clamp(1.4rem,2.4vw,2rem)]"
+            wordmarkClassName="tracking-[0.3em]"
+          />
           <p className="mt-5 max-w-[34ch] text-[clamp(1rem,1.4vw,1.2rem)] leading-snug opacity-70">
             {FOOTER.note}
           </p>

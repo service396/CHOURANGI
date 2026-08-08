@@ -19,6 +19,8 @@ const USE_LOCAL = import.meta.env.VITE_LOCAL_MEDIA === 'true'
 /** @type {Record<string, {id: string, stamp: string, ratio: number, alt: string}>} */
 const CATALOGUE = {
   // ---------------------------------------------------------------- Chourangi
+  // Generated for the opening section, which has since been removed. Kept so
+  // the asset stays one line from reuse rather than being regenerated.
   heroTable: {
     id: 'a26be28d-396d-43d4-834c-9924fb6bce3a',
     stamp: '20260808_032206',

@@ -35,7 +35,7 @@ export function Premise() {
         <div className="col-span-12 lg:col-span-9">
           <Meta className="reveal-fade mb-10 text-ceramic md:mb-14">{PREMISE.meta}</Meta>
           <Lines
-            as="h2"
+            as="h1"
             id="premise-title"
             lines={[PREMISE.headline]}
             className="max-w-[15ch] text-[clamp(2.6rem,7vw,6.75rem)] leading-[0.92]"

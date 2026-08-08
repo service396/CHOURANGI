@@ -14,7 +14,7 @@ export const SITE = {
 // `short` is used below the md breakpoint, where the full labels collide.
 // No booking link: this page is read at the table, in the restaurant.
 export const NAV = [
-  { label: 'Stories', short: 'Stories', href: '#stories' },
+  { label: 'Stories', short: 'Stories', href: '#hilsa' },
   { label: 'About', short: 'About', href: '#about' },
 ]
 
@@ -24,14 +24,6 @@ export const CHAPTERS = [
   { id: 'railway', number: '03', label: 'Railway' },
   { id: 'about', number: '04', label: 'Chourangi' },
 ]
-
-export const HERO = {
-  meta: 'Chourangi / London',
-  headline: ['Every dish has', 'a Calcutta before', 'Chourangi.'],
-  support:
-    'Three dishes. Three stories shaped by ingredient, memory and a city that has never stopped evolving.',
-  cta: 'Discover the stories',
-}
 
 export const PREMISE = {
   meta: '300 years / one evolving city',

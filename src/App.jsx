@@ -2,7 +2,6 @@ import { Fragment, useEffect } from 'react'
 import { CHAPTER_LIST } from './data/content'
 import { ChapterRail, Cursor, Grain, Nav } from './components/Chrome'
 import { DishSlideshow } from './components/DishSlideshow'
-import { Hero } from './sections/Hero'
 import { Premise } from './sections/Premise'
 import { DishSection } from './sections/DishSection'
 import { IngredientSection } from './sections/IngredientSection'
@@ -51,8 +50,7 @@ export default function App() {
         Skip to the stories
       </a>
 
-      <main>
-        <Hero />
+      <main id="top">
         <Premise />
 
         {CHAPTER_LIST.map((chapter, i) => (

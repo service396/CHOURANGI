@@ -1,16 +1,18 @@
 import { PREMISE } from '../data/content'
-import { Figure, Lines, Meta } from '../components/primitives'
+import { Lines, Meta } from '../components/primitives'
+import { StoryCarousel } from '../components/StoryCarousel'
 import { gsap, revealIn, useGsap } from '../lib/motion'
 
 /**
- * Deliberate silence. One statement upper-left, a small paragraph bottom-right,
- * a single architectural rule, and a lot of ivory. The band of photography at
- * the foot exists to hand the eye down into the first chapter.
+ * The opening. The statement carries the idea, the two halves of the argument
+ * sit level with each other rather than stacked down the page, and the carousel
+ * closes the section — so the reader meets all three dishes before being taken
+ * into the first one.
  */
 export function Premise() {
   const scope = useGsap(() => {
     const root = scope.current
-    revealIn(root, { start: 'top 74%' })
+    revealIn(root, { start: 'top 82%' })
     gsap.fromTo(
       root.querySelector('[data-premise-rule]'),
       { scaleX: 0 },
@@ -18,7 +20,7 @@ export function Premise() {
         scaleX: 1,
         duration: 1.1,
         ease: 'expo.out',
-        scrollTrigger: { trigger: root, start: 'top 70%', once: true },
+        scrollTrigger: { trigger: root, start: 'top 78%', once: true },
       },
     )
   })
@@ -29,11 +31,11 @@ export function Premise() {
       id="stories"
       data-tone="light"
       aria-labelledby="premise-title"
-      className="relative bg-ivory"
+      className="relative bg-ivory pb-[12svh] pt-[17svh] md:pb-[14svh] md:pt-[20svh]"
     >
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[14svh] pt-[22svh] md:pb-[18svh] md:pt-[26svh]">
-        <div className="col-span-12 lg:col-span-9">
-          <Meta className="reveal-fade mb-10 text-ceramic md:mb-14">{PREMISE.meta}</Meta>
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
+        <div className="col-span-12 lg:col-span-10">
+          <Meta className="reveal-fade mb-8 text-ceramic md:mb-10">{PREMISE.meta}</Meta>
           <Lines
             as="h1"
             id="premise-title"
@@ -42,22 +44,16 @@ export function Premise() {
           />
         </div>
 
-        <div className="col-span-12 mt-14 lg:col-span-7 lg:col-start-1 lg:mt-20">
+        <div className="col-span-12 mt-10 md:col-span-6 md:mt-14">
           <Lines
             as="p"
             lines={PREMISE.lines}
-            className="text-[clamp(1.5rem,3.1vw,3rem)] leading-[1.06] text-timber"
+            className="text-[clamp(1.35rem,2.5vw,2.35rem)] leading-[1.1] text-timber"
           />
         </div>
 
-        <div
-          data-premise-rule
-          aria-hidden="true"
-          className="col-span-12 mt-14 h-px origin-left bg-rattan/60 lg:mt-24"
-        />
-
-        <div className="col-span-12 mt-10 lg:col-span-5 lg:col-start-8 lg:mt-14">
-          <div className="body-copy max-w-[46ch] space-y-5">
+        <div className="col-span-12 mt-7 md:col-span-5 md:col-start-8 md:mt-14">
+          <div className="body-copy max-w-[44ch] space-y-4">
             {PREMISE.body.map((text) => (
               <p key={text} className="reveal-fade">
                 {text}
@@ -65,15 +61,15 @@ export function Premise() {
             ))}
           </div>
         </div>
+
+        <div
+          data-premise-rule
+          aria-hidden="true"
+          className="col-span-12 mt-12 h-px origin-left bg-rattan/60 md:mt-16"
+        />
       </div>
 
-      <Figure
-        name="roomMorning"
-        ratio={2.9}
-        sizes="100vw"
-        className="w-full"
-        imgClassName="object-[center_62%]"
-      />
+      <StoryCarousel />
     </section>
   )
 }

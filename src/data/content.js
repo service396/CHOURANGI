@@ -11,12 +11,10 @@ export const SITE = {
   siteUrl: 'https://www.chourangi.co.uk/',
 }
 
-// `short` is used below the md breakpoint, where the full labels collide.
+// Stories is rendered separately as a dropdown over the three dishes.
+// `short` is used below the md breakpoint, where full labels collide.
 // No booking link: this page is read at the table, in the restaurant.
-export const NAV = [
-  { label: 'Stories', short: 'Stories', href: '#hilsa' },
-  { label: 'About', short: 'About', href: '#about' },
-]
+export const NAV = [{ label: 'About', short: 'About', href: '#about' }]
 
 export const CHAPTERS = [
   { id: 'hilsa', number: '01', label: 'Hilsa' },
@@ -33,12 +31,19 @@ export const PREMISE = {
     'Each brought ingredients, techniques and habits. Over generations, those influences became something unmistakably its own.',
     'At Chourangi, those stories continue on the plate.',
   ],
+  carouselMeta: 'Three dishes / three stories',
+  carouselCta: 'Read the story',
 }
 
 export const HILSA = {
   id: 'hilsa',
   number: '01',
   slug: 'Hilsa',
+  card: {
+    title: 'Smoked Hilsa on Toast',
+    line: 'Mashed hilsa · barbecue sauce · nigella',
+    image: 'hilsaMaster',
+  },
   slideshow: {
     counter: '01 / Three dishes',
     title: ['Smoked', 'Hilsa', 'on Toast'],
@@ -100,6 +105,11 @@ export const GONDHORAJ = {
   id: 'gondhoraj',
   number: '02',
   slug: 'Gondhoraj',
+  card: {
+    title: 'Gondhoraj Pepper Garlic Lobster',
+    line: 'Gondhoraj · garlic · pepper · ghee rice',
+    image: 'lobsterMaster',
+  },
   slideshow: {
     counter: '02 / Three dishes',
     title: ['Gondhoraj', 'Pepper Garlic', 'Lobster'],
@@ -172,6 +182,11 @@ export const RAILWAY = {
   id: 'railway',
   number: '03',
   slug: 'Railway',
+  card: {
+    title: 'Railway Lamb Curry',
+    line: 'Braised lamb · black cardamom · fennel · tamarind · ginger',
+    image: 'railwayMaster',
+  },
   slideshow: {
     counter: '03 / Three dishes',
     title: ['Railway', 'Lamb', 'Curry'],

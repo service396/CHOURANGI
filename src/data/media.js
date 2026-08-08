@@ -33,6 +33,7 @@ const CATALOGUE = {
     ratio: 21 / 9,
     alt: 'A long Chourangi table seen wide, spread with blue glazed plates, brass condiment bowls, chai and warm bread, cane chairs behind.',
   },
+  // Not currently placed: the opening section closes on the dish carousel now.
   roomMorning: {
     id: 'df5d40ae-2309-4271-b3ee-27e62f552020',
     stamp: '20260808_032707',

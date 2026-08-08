@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap, useDesktopPointer, useReducedMotion } from '../lib/motion'
-import { CHAPTERS, NAV } from '../data/content'
+import { CHAPTER_LIST, CHAPTERS, NAV } from '../data/content'
 import { Logo } from './Logo'
 
 /**
@@ -112,6 +112,9 @@ export function Cursor() {
 export function Nav() {
   const tone = useTopTone()
   const [condensed, setCondensed] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const triggerRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 80)
@@ -119,6 +122,26 @@ export function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Dismiss on outside pointer, on Escape, and once a dish has been chosen.
+  useEffect(() => {
+    if (!menuOpen) return undefined
+    const onDown = (event) => {
+      if (menuRef.current?.contains(event.target) || triggerRef.current?.contains(event.target)) return
+      setMenuOpen(false)
+    }
+    const onKey = (event) => {
+      if (event.key !== 'Escape') return
+      setMenuOpen(false)
+      triggerRef.current?.focus()
+    }
+    document.addEventListener('pointerdown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [menuOpen])
 
   const dark = tone === 'dark'
 
@@ -152,6 +175,36 @@ export function Nav() {
 
       <nav aria-label="Primary">
         <ul className="flex items-center gap-4 sm:gap-6 md:gap-10">
+          {/* Stories opens the three dishes rather than jumping to one of them. */}
+          <li>
+            <button
+              ref={triggerRef}
+              type="button"
+              data-cursor="link"
+              aria-expanded={menuOpen}
+              aria-controls="stories-menu"
+              aria-haspopup="true"
+              onClick={() => setMenuOpen((open) => !open)}
+              className="meta group relative inline-flex items-center gap-1.5 whitespace-nowrap py-2"
+            >
+              Stories
+              <span
+                aria-hidden="true"
+                className={`inline-block text-[0.7em] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  menuOpen ? 'rotate-180' : ''
+                }`}
+              >
+                ▾
+              </span>
+              <span
+                aria-hidden="true"
+                className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-current transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  menuOpen ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100'
+                }`}
+              />
+            </button>
+          </li>
+
           {NAV.map((item) => (
             <li key={item.href}>
               <a
@@ -170,6 +223,47 @@ export function Nav() {
           ))}
         </ul>
       </nav>
+
+      {/* Anchored to the header rather than the trigger, so it stays inside the
+          page gutters at every width instead of running off a narrow screen. */}
+      <div
+        id="stories-menu"
+        ref={menuRef}
+        hidden={!menuOpen}
+        className={`absolute right-[var(--gutter-right)] top-full w-[min(23rem,calc(100vw-var(--gutter)-var(--gutter-right)))] origin-top-right transition-[opacity,transform] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          menuOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
+        } ${dark ? 'bg-charcoal text-ivory' : 'bg-ivory text-charcoal'}`}
+        style={{ boxShadow: dark ? '0 18px 50px rgba(0,0,0,0.45)' : '0 18px 50px rgba(35,35,33,0.14)' }}
+      >
+        <ul className="list-none p-2">
+          {CHAPTER_LIST.map((chapter) => (
+            <li key={chapter.id}>
+              <a
+                href={`#${chapter.id}`}
+                data-cursor="story"
+                onClick={() => setMenuOpen(false)}
+                className="group flex items-baseline gap-4 px-4 py-4 transition-colors duration-300 hover:bg-current/5 focus-visible:bg-current/5"
+              >
+                <span className="meta shrink-0 text-rattan tabular-nums">{chapter.number}</span>
+                <span className="min-w-0">
+                  <span className="display block text-[1.0625rem] leading-tight">
+                    {chapter.card.title}
+                  </span>
+                  <span className="mt-1 block text-[0.75rem] leading-snug opacity-55">
+                    {chapter.card.line}
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="ml-auto shrink-0 self-center opacity-0 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:opacity-60 group-focus-visible:opacity-60"
+                >
+                  →
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   )
 }

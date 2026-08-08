@@ -166,11 +166,7 @@ export function Nav() {
         }}
       />
       <a href="#top" data-cursor="link" aria-label="Chourangi — back to top" className="shrink-0">
-        <Logo
-          markSize="1.7em"
-          className="text-[clamp(0.95rem,1.5vw,1.3rem)]"
-          wordmarkClassName="tracking-[0.2em] md:tracking-[0.34em]"
-        />
+        <Logo />
       </a>
 
       <nav aria-label="Primary">

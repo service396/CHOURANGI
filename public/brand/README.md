@@ -1,20 +1,24 @@
 # Brand assets
 
-## chourangi-mark.svg  (REQUIRED — not yet supplied)
+`chourangi-logo-source.png` is the supplied artwork: the full lockup on a
+1080x1080 canvas, already drawn in black on full transparency.
 
-The Chourangi botanical mark, on its own, without the CHOURANGI wordmark
-underneath — the site sets the wordmark in Instrument Serif beside it.
+The three files the site actually uses are cut from it and tightly trimmed:
 
-Requirements:
+| File | Contents | Aspect |
+| --- | --- | --- |
+| `chourangi-mark.png` | the botanical mark alone | 225 x 297 |
+| `chourangi-wordmark.png` | CHOURANGI alone | 742 x 71 |
+| `chourangi-lockup.png` | both, as supplied | 742 x 404 |
 
-- **Transparent background.** The mark is painted with a CSS mask so it takes
-  the surrounding text colour: charcoal on ivory sections, ivory on the
-  charcoal, green and timber ones. A cream or white background square will
-  render as a solid block.
-- **Solid single colour** (black is fine — the colour is replaced at runtime).
-- **SVG preferred**, so it stays sharp at every size and in the favicon. A
-  transparent PNG at 512px or larger also works for the on-page mark, but the
-  favicon really wants the vector.
-- **Tightly cropped** to the artwork, with no built-in padding.
+They are painted as CSS masks over `currentColor`, so the identity takes the
+colour of whatever it sits on rather than being locked to black — the page runs
+through ivory, parchment, ceramic blue, heritage green and timber, and a fixed
+black logo would disappear against half of them. The alpha channel of each file
+is the mask, so nothing is processed at runtime.
 
-Until this file exists the site renders the wordmark alone — nothing breaks.
+`public/favicon.png` is the mark in charcoal on the ivory canvas. A bare
+black-on-transparent mark is invisible in a dark browser tab bar.
+
+To regenerate after new artwork lands, re-cut from the source with the band
+offsets in the commit that added these files.

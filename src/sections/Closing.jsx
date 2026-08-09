@@ -21,14 +21,14 @@ export function Closing() {
       aria-labelledby="closing-title"
       className="relative bg-timber text-ivory"
     >
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[12svh] pt-[18svh]">
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[var(--section-y)] pt-[var(--section-y)]">
         <div className="col-span-12 lg:col-span-7">
-          <Meta className="reveal-fade mb-10 text-rattan">{CLOSING.meta}</Meta>
+          <Meta className="reveal-fade mb-[var(--meta-gap)] text-rattan">{CLOSING.meta}</Meta>
           <Lines
             as="h2"
             id="closing-title"
             lines={CLOSING.headline}
-            className="text-[clamp(2.6rem,6.6vw,6rem)] leading-[0.92]"
+            className="display-xl"
           />
         </div>
 

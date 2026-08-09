@@ -15,22 +15,22 @@ function InterpretationPlate({ interpretation, chapterId }) {
       ref={scope}
       data-tone="light"
       aria-labelledby={`${chapterId}-interpretation-title`}
-      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory py-[14svh] md:py-[18svh]"
+      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory section-y"
     >
       <div className="col-span-12 lg:col-span-6">
-        <Meta className="reveal-fade mb-8 text-ceramic">{interpretation.meta}</Meta>
+        <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{interpretation.meta}</Meta>
         <Lines
           as="h3"
           id={`${chapterId}-interpretation-title`}
           lines={interpretation.headline}
-          className="mb-10 text-[clamp(2.4rem,5.4vw,4.75rem)] leading-[0.94]"
+          className="display-lg mb-[var(--block-y)]"
         />
         <Body paragraphs={interpretation.body} />
-        <Rule className="my-12 !bg-rattan md:my-16" />
+        <Rule className="my-[var(--block-y)] !bg-rattan" />
         <Lines
           as="p"
           lines={interpretation.statement}
-          className="text-[clamp(1.6rem,3.2vw,2.9rem)] leading-[1.05]"
+          className="display-md"
         />
         <p className="reveal-fade body-copy mt-8 max-w-[44ch] opacity-80">{interpretation.coda}</p>
       </div>
@@ -69,23 +69,23 @@ function InterpretationSequence({ interpretation, chapterId }) {
       ref={scope}
       data-tone="light"
       aria-labelledby={`${chapterId}-interpretation-title`}
-      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory py-[14svh] md:py-[18svh]"
+      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory section-y"
     >
       <div className="col-span-12 lg:col-span-5">
         <Figure name={interpretation.image} ratio={4 / 5} sizes="(max-width: 1024px) 100vw, 40vw" />
       </div>
 
       <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-        <Meta className="reveal-fade mb-8 text-ceramic">{interpretation.meta}</Meta>
+        <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{interpretation.meta}</Meta>
         <Lines
           as="h3"
           id={`${chapterId}-interpretation-title`}
           lines={interpretation.headline}
-          className="mb-10 text-[clamp(2.4rem,5.4vw,4.75rem)] leading-[0.94]"
+          className="display-lg mb-[var(--block-y)]"
         />
         <Body paragraphs={interpretation.body} />
 
-        <ul data-seq-list className="mt-12 md:mt-16">
+        <ul data-seq-list className="block-y">
           {interpretation.sequence.map((item) => (
             <li key={item} data-seq className="border-t border-rattan/50 py-5">
               <span className="display block text-[clamp(1.25rem,2.2vw,1.9rem)] leading-tight">{item}</span>
@@ -98,7 +98,7 @@ function InterpretationSequence({ interpretation, chapterId }) {
         <Lines
           as="p"
           lines={interpretation.statement}
-          className="mt-14 text-[clamp(1.4rem,2.9vw,2.6rem)] leading-[1.08] text-ceramic md:mt-20"
+          className="display-md block-y text-ceramic"
         />
       </div>
     </section>
@@ -130,24 +130,24 @@ function InterpretationStack({ interpretation, chapterId }) {
       ref={scope}
       data-tone="light"
       aria-labelledby={`${chapterId}-interpretation-title`}
-      className="bg-ivory py-[14svh] md:py-[18svh]"
+      className="bg-ivory section-y"
     >
       <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
         <div className="col-span-12 lg:col-span-6">
-          <Meta className="reveal-fade mb-8 text-ceramic">{interpretation.meta}</Meta>
+          <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{interpretation.meta}</Meta>
           <Lines
             as="h3"
             id={`${chapterId}-interpretation-title`}
             lines={interpretation.headline}
-            className="text-[clamp(2.6rem,6.2vw,5.5rem)] leading-[0.92]"
+            className="display-xl"
           />
         </div>
-        <div className="col-span-12 mt-10 lg:col-span-5 lg:col-start-8 lg:mt-4">
+        <div className="col-span-12 block-y lg:col-span-5 lg:col-start-8 lg:mt-1">
           <Body paragraphs={interpretation.body} />
         </div>
       </div>
 
-      <ul data-clause-list className="page-x mx-auto mt-16 w-full max-w-[100rem] md:mt-24">
+      <ul data-clause-list className="page-x mx-auto block-y w-full max-w-[100rem]">
         {interpretation.sequence.map((clause, i) => (
           <li
             key={clause}
@@ -164,15 +164,15 @@ function InterpretationStack({ interpretation, chapterId }) {
         ))}
       </ul>
 
-      <div className="page-x mx-auto mt-16 grid w-full max-w-[100rem] grid-cols-12 gap-x-6 md:mt-24">
+      <div className="page-x mx-auto block-y grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
         <div className="col-span-12 md:col-span-5">
           <Lines
             as="p"
             lines={interpretation.statement}
-            className="text-[clamp(1.9rem,4.2vw,3.75rem)] leading-[1.02] text-timber"
+            className="display-lg text-timber"
           />
         </div>
-        <div className="col-span-12 mt-12 md:col-span-6 md:col-start-7 md:mt-0">
+        <div className="col-span-12 block-y md:col-span-6 md:col-start-7 md:mt-0">
           <Figure name={interpretation.image} ratio={4 / 5} sizes="(max-width: 768px) 100vw, 46vw" />
         </div>
       </div>

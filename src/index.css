@@ -32,6 +32,30 @@
     color-scheme: light;
     --gutter: 1.5rem;
     --gutter-right: 1.5rem;
+
+    /* One vertical rhythm for the whole page. Every section pads by
+       --section-y, every major block inside one is separated by --block-y,
+       and every section label sits --meta-gap above its headline. Sections
+       used to set these individually, which is why their headers did not
+       line up with each other. */
+    --section-y: 5rem;
+    --block-y: 2.75rem;
+    --meta-gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --section-y: 7.5rem;
+      --block-y: 4rem;
+      --meta-gap: 1.75rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    :root {
+      --section-y: 9.5rem;
+      --block-y: 5rem;
+      --meta-gap: 2rem;
+    }
   }
 
   /* The right gutter widens from lg to reserve a lane for the chapter rail. */
@@ -123,6 +147,29 @@
   font-weight: 400;
   letter-spacing: -0.015em;
   line-height: 0.94;
+}
+
+/* Three display sizes, used everywhere, instead of a bespoke clamp per
+   section. `xl` opens a chapter, `lg` heads a section, `md` carries the
+   statements inside one. */
+@utility display-xl {
+  font-size: clamp(2.5rem, 6.4vw, 5.75rem);
+  line-height: 0.92;
+}
+@utility display-lg {
+  font-size: clamp(2.1rem, 4.6vw, 4rem);
+  line-height: 0.96;
+}
+@utility display-md {
+  font-size: clamp(1.5rem, 3.1vw, 2.75rem);
+  line-height: 1.06;
+}
+
+@utility section-y {
+  padding-block: var(--section-y);
+}
+@utility block-y {
+  margin-top: var(--block-y);
 }
 
 @utility meta {

@@ -15,7 +15,7 @@ function IngredientCrops({ ingredient }) {
   const [a, b, c] = ingredient.images
 
   return (
-    <section ref={scope} data-tone="light" aria-labelledby="hilsa-ingredient-title" className="relative overflow-hidden bg-ivory py-[14svh] md:py-[18svh]">
+    <section ref={scope} data-tone="light" aria-labelledby="hilsa-ingredient-title" className="relative overflow-hidden bg-ivory section-y">
       <div className="page-x mx-auto w-full max-w-[100rem]">
         <Meta className="reveal-fade text-ceramic">{ingredient.meta}</Meta>
       </div>
@@ -30,17 +30,17 @@ function IngredientCrops({ ingredient }) {
         </span>
       </h3>
 
-      <div className="page-x mx-auto mt-12 grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-14 md:mt-16">
+      <div className="page-x mx-auto block-y grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-[var(--block-y)]">
         <div className="col-span-12 md:col-span-7">
           <Lines
             lines={ingredient.headline}
             as="p"
-            className="text-[clamp(1.6rem,3.5vw,3.1rem)] leading-[1.06]"
+            className="display-md"
           />
         </div>
 
-        <figure className="col-span-7 md:col-span-4 md:col-start-9 md:-mt-32">
-          <Figure name={a.key} ratio={4 / 5} sizes="(max-width: 768px) 58vw, 30vw" />
+        <figure className="col-span-9 md:col-span-4 md:col-start-9">
+          <Figure name={a.key} ratio={4 / 5} sizes="(max-width: 768px) 74vw, 30vw" />
           <Caption>{a.caption}</Caption>
         </figure>
 
@@ -53,8 +53,8 @@ function IngredientCrops({ ingredient }) {
           <Caption>{b.caption}</Caption>
         </figure>
 
-        <figure className="col-span-8 col-start-4 md:col-span-3 md:col-start-2">
-          <Figure name={c.key} ratio={4 / 5} sizes="(max-width: 768px) 66vw, 24vw" />
+        <figure className="col-span-9 col-start-4 md:col-span-3 md:col-start-2">
+          <Figure name={c.key} ratio={4 / 5} sizes="(max-width: 768px) 74vw, 24vw" />
           <Caption>{c.caption}</Caption>
         </figure>
 
@@ -62,7 +62,7 @@ function IngredientCrops({ ingredient }) {
           <Lines
             as="p"
             lines={ingredient.statement}
-            className="text-[clamp(1.4rem,2.8vw,2.5rem)] leading-[1.08] text-ceramic"
+            className="display-md text-ceramic"
           />
         </div>
       </div>
@@ -92,7 +92,7 @@ function IngredientMonolith({ ingredient }) {
   }, [reduced, desktop])
 
   return (
-    <section ref={scope} data-tone="light" aria-labelledby="gondhoraj-ingredient-title" className="relative overflow-hidden bg-ivory py-[14svh] md:py-[18svh]">
+    <section ref={scope} data-tone="light" aria-labelledby="gondhoraj-ingredient-title" className="relative overflow-hidden bg-ivory section-y">
       <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
         {/* Stacks until lg: "Gondhoraj" at display scale will not sit in a
             four-column measure at tablet widths. */}
@@ -100,7 +100,7 @@ function IngredientMonolith({ ingredient }) {
           <Meta className="reveal-fade text-ceramic">{ingredient.meta}</Meta>
           <h3
             id="gondhoraj-ingredient-title"
-            className="display mt-6 text-[clamp(3.25rem,8.5vw,7rem)] leading-[0.86] text-timber"
+            className="display display-xl mt-[var(--meta-gap)] text-timber"
           >
             <span className="reveal-line">
               <span>{ingredient.title}</span>
@@ -118,19 +118,19 @@ function IngredientMonolith({ ingredient }) {
           />
         </div>
 
-        <div className="col-span-12 mt-14 md:col-span-7 md:mt-20">
+        <div className="col-span-12 block-y md:col-span-7">
           <Lines
             as="p"
             lines={ingredient.headline}
-            className="text-[clamp(1.6rem,3.6vw,3.2rem)] leading-[1.05]"
+            className="display-md"
           />
         </div>
 
-        <div className="col-span-12 mt-10 md:col-span-5 md:col-start-2 md:mt-16">
+        <div className="col-span-12 block-y md:col-span-5 md:col-start-2">
           <Body paragraphs={ingredient.body} />
         </div>
 
-        <div className="col-span-12 mt-12 grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9 md:mt-16 md:grid-cols-1 md:gap-10">
+        <div className="col-span-12 block-y grid grid-cols-2 gap-6 md:col-span-4 md:col-start-9 md:grid-cols-1 md:gap-[var(--block-y)]">
           {ingredient.supports.map((support) => (
             <figure key={support.key}>
               <Figure name={support.key} ratio={3 / 2} sizes="(max-width: 768px) 46vw, 28vw" />
@@ -164,27 +164,27 @@ function IngredientLayers({ ingredient }) {
   }, [reduced])
 
   return (
-    <section ref={scope} data-tone="light" aria-labelledby="railway-ingredient-title" className="relative overflow-hidden bg-ivory py-[14svh] md:py-[18svh]">
+    <section ref={scope} data-tone="light" aria-labelledby="railway-ingredient-title" className="relative overflow-hidden bg-ivory section-y">
       <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
         <div className="col-span-12 lg:col-span-6">
           <Meta className="reveal-fade text-ceramic">{ingredient.meta}</Meta>
-          <p className="reveal-fade mt-6 text-[clamp(1.05rem,1.5vw,1.35rem)] text-rattan">{ingredient.title}</p>
+          <p className="reveal-fade mt-2 text-[clamp(1rem,1.4vw,1.25rem)] text-rattan">{ingredient.title}</p>
           <Lines
             as="h3"
             id="railway-ingredient-title"
             lines={ingredient.headline}
-            className="mt-4 text-[clamp(3rem,8vw,7rem)] leading-[0.9]"
+            className="display-xl mt-[calc(var(--meta-gap)-0.5rem)]"
           />
         </div>
 
-        <div className="col-span-12 mt-12 lg:col-span-5 lg:col-start-8 lg:mt-32">
+        <div className="col-span-12 block-y lg:col-span-5 lg:col-start-8 lg:mt-24">
           <Body paragraphs={ingredient.body} />
         </div>
       </div>
 
       <div
         data-layer-grid
-        className="page-x mx-auto mt-16 grid w-full max-w-[100rem] grid-cols-2 gap-x-4 gap-y-8 md:mt-24 md:grid-cols-4 md:gap-x-6"
+        className="page-x mx-auto block-y grid w-full max-w-[100rem] grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-6"
       >
         {ingredient.layers.map((layer, i) => (
           <figure key={layer.key} data-layer className={i % 2 === 1 ? 'md:mt-14' : ''}>
@@ -197,12 +197,12 @@ function IngredientLayers({ ingredient }) {
         ))}
       </div>
 
-      <div className="page-x mx-auto mt-16 grid w-full max-w-[100rem] grid-cols-12 gap-x-6 md:mt-24">
+      <div className="page-x mx-auto block-y grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
         <div className="col-span-12 lg:col-span-7">
           <Lines
             as="p"
             lines={ingredient.statement}
-            className="text-[clamp(1.5rem,3.2vw,2.8rem)] leading-[1.06] text-timber"
+            className="display-md text-timber"
           />
         </div>
         <p className="reveal-fade body-copy col-span-12 mt-6 lg:col-span-4 lg:col-start-9 lg:mt-0 lg:self-end">

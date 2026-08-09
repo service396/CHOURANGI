@@ -31,7 +31,7 @@ function DishPinned({ dish }) {
       ref={scope}
       data-tone="light"
       aria-labelledby="hilsa-dish-title"
-      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory py-[14svh] md:py-[18svh]"
+      className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 gap-y-12 bg-ivory section-y"
     >
       <div className="col-span-12 lg:col-span-5">
         <div className="lg:sticky lg:top-[18svh]">
@@ -51,19 +51,19 @@ function DishPinned({ dish }) {
       </div>
 
       <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-        <Meta className="reveal-fade mb-8 text-ceramic">{dish.meta}</Meta>
+        <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{dish.meta}</Meta>
         <Lines
           as="h3"
           id="hilsa-dish-title"
           lines={dish.headline}
-          className="mb-10 text-[clamp(2.4rem,5.4vw,4.75rem)] leading-[0.94]"
+          className="display-lg"
         />
         <Body paragraphs={dish.body} />
-        <div className="mt-16 md:mt-24">
+        <div className="block-y">
           <Lines
             as="p"
             lines={dish.statement}
-            className="text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.04] text-timber"
+            className="display-md text-timber"
           />
         </div>
       </div>
@@ -94,14 +94,14 @@ function DishTurn({ dish, chapterId }) {
 
   return (
     <section ref={scope} data-tone="light" aria-labelledby={`${chapterId}-dish-title`} className="bg-ivory">
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[10svh] pt-[14svh] md:pb-[12svh] md:pt-[18svh]">
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[var(--block-y)] pt-[var(--section-y)]">
         <div className="col-span-12 lg:col-span-7">
-          <Meta className="reveal-fade mb-8 text-ceramic">{dish.meta}</Meta>
+          <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{dish.meta}</Meta>
           <Lines
             as="h3"
             id={`${chapterId}-dish-title`}
             lines={dish.headline}
-            className="text-[clamp(2.4rem,5.6vw,5rem)] leading-[0.94]"
+            className="display-lg"
           />
         </div>
         <div className="col-span-12 mt-10 self-end lg:col-span-4 lg:col-start-9 lg:mt-0">
@@ -119,22 +119,22 @@ function DishTurn({ dish, chapterId }) {
         />
       </div>
 
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[16svh] pt-[12svh] md:pt-[16svh]">
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[var(--section-y)] pt-[var(--block-y)]">
         <div className="col-span-12 lg:col-span-8">
           <Lines
             as="p"
             lines={dish.turn}
-            className="text-[clamp(2rem,4.6vw,4.25rem)] leading-[1.02]"
+            className="display-lg"
           />
         </div>
         <div className="col-span-12 mt-12 lg:col-span-5 lg:col-start-8 lg:mt-20">
           <Body paragraphs={dish.body} />
         </div>
-        <div className="col-span-12 mt-16 md:mt-24 lg:col-span-6">
+        <div className="col-span-12 block-y lg:col-span-6">
           <Lines
             as="p"
             lines={dish.statement}
-            className="text-[clamp(1.75rem,3.6vw,3.4rem)] leading-[1.04] text-ceramic"
+            className="display-md text-ceramic"
           />
         </div>
       </div>
@@ -157,41 +157,41 @@ function DishOverlap({ dish, chapterId }) {
       ref={scope}
       data-tone="light"
       aria-labelledby={`${chapterId}-dish-title`}
-      className="relative overflow-hidden bg-ivory py-[14svh] md:py-[18svh]"
+      className="relative overflow-hidden bg-ivory section-y"
     >
       <div className="page-x mx-auto w-full max-w-[100rem]">
-        <Meta className="reveal-fade mb-10 text-ceramic">{dish.meta}</Meta>
+        <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{dish.meta}</Meta>
 
         <div className="relative">
           <div className="grid grid-cols-12 gap-x-6">
-            <div className="col-span-12 md:col-span-7 md:col-start-6">
+            <div className="col-span-12 md:col-span-6 md:col-start-7">
               <Figure name={dish.images.primary} ratio={4 / 5} sizes="(max-width: 768px) 100vw, 55vw" />
             </div>
           </div>
 
           {/* The headline sits over the ivory to the left of the plate, never on it. */}
-          <div className="relative z-10 -mt-6 md:absolute md:left-0 md:top-[10%] md:mt-0 md:w-[62%]">
+          <div className="relative z-10 mt-[var(--meta-gap)] md:absolute md:left-0 md:top-[8%] md:mt-0 md:w-[48%]">
             <Lines
               as="h3"
               id={`${chapterId}-dish-title`}
               lines={dish.headline}
-              className="text-[clamp(2.5rem,6.4vw,5.75rem)] leading-[0.9]"
+              className="display-xl"
             />
           </div>
 
-          <div className="mt-10 grid grid-cols-12 gap-x-6 md:absolute md:bottom-[6%] md:left-0 md:mt-0 md:w-[40%]">
+          <div className="mt-10 grid grid-cols-12 gap-x-6 md:absolute md:bottom-[6%] md:left-0 md:mt-0 md:w-[46%]">
             <div className="col-span-12">
               <Body paragraphs={dish.body} measure="max-w-[42ch]" />
             </div>
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-12 gap-x-6 md:mt-24">
+        <div className="block-y grid grid-cols-12 gap-x-6">
           <div className="col-span-12 lg:col-span-8">
             <Lines
               as="p"
               lines={dish.statement}
-              className="text-[clamp(1.75rem,3.8vw,3.5rem)] leading-[1.03] text-timber"
+              className="display-md text-timber"
             />
           </div>
           <p className="reveal-fade body-copy col-span-12 mt-8 max-w-[40ch] lg:col-span-4 lg:mt-0 lg:self-end">

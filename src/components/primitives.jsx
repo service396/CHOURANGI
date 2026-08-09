@@ -77,6 +77,36 @@ export const Figure = forwardRef(function Figure(
   )
 })
 
+/**
+ * The label-and-headline pair that opens every section.
+ *
+ * Centralised so all twelve section headers share one rhythm: the gap between
+ * the label and the headline is `--meta-gap` everywhere, and the headline uses
+ * one of the three display sizes rather than a clamp invented per section.
+ */
+export function SectionHeader({
+  meta,
+  lines,
+  id,
+  as = 'h3',
+  size = 'display-lg',
+  accent = 'text-ceramic',
+  className = '',
+  headingClassName = '',
+}) {
+  return (
+    <div className={className}>
+      {meta ? <Meta className={`reveal-fade ${accent}`}>{meta}</Meta> : null}
+      <Lines
+        as={as}
+        id={id}
+        lines={lines}
+        className={`${size} ${meta ? 'mt-[var(--meta-gap)]' : ''} ${headingClassName}`}
+      />
+    </div>
+  )
+}
+
 /** Small sans caption. Sits under cultural and archival imagery. */
 export function Caption({ children, className = '' }) {
   return (

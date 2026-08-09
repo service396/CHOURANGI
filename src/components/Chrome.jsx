@@ -116,12 +116,26 @@ export function Nav() {
   const menuRef = useRef(null)
   const triggerRef = useRef(null)
 
+  const [hidden, setHidden] = useState(false)
+
+  // The bar retracts while reading downward and returns on any upward scroll.
+  // A permanently fixed bar sits on top of whichever section header happens to
+  // be passing under it, which on a page of oversized display type reads as a
+  // collision rather than as chrome.
   useEffect(() => {
-    const onScroll = () => setCondensed(window.scrollY > 80)
+    let last = window.scrollY
+    const onScroll = () => {
+      const y = window.scrollY
+      setCondensed(y > 80)
+      if (Math.abs(y - last) > 6) {
+        setHidden(y > 220 && y > last && !menuOpen)
+        last = y
+      }
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [menuOpen])
 
   // Dismiss on outside pointer, on Escape, and once a dish has been chosen.
   useEffect(() => {
@@ -147,9 +161,9 @@ export function Nav() {
 
   return (
     <header
-      className={`page-x fixed inset-x-0 top-0 z-[80] isolate flex items-center justify-between transition-[height,background-color,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`page-x fixed inset-x-0 top-0 z-[80] isolate flex items-center justify-between transition-[height,transform,color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         condensed ? 'h-[60px] md:h-[68px]' : 'h-[76px] md:h-[92px]'
-      } ${dark ? 'text-ivory' : 'text-charcoal'}`}
+      } ${hidden ? '-translate-y-full' : 'translate-y-0'} ${dark ? 'text-ivory' : 'text-charcoal'}`}
     >
       {/* A soft scrim rather than a solid bar: the page runs through ivory,
           parchment, ceramic blue, green and timber, and a hard-edged block of

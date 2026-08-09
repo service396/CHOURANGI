@@ -44,14 +44,14 @@ export function About() {
 
   return (
     <section ref={scope} id="about" data-tone="light" aria-labelledby="about-title" className="bg-ivory">
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[10svh] pt-[18svh]">
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[var(--block-y)] pt-[var(--section-y)]">
         <div className="col-span-12 lg:col-span-9">
-          <Meta className="reveal-fade mb-10 text-ceramic">{ABOUT.meta}</Meta>
+          <Meta className="reveal-fade mb-[var(--meta-gap)] text-ceramic">{ABOUT.meta}</Meta>
           <Lines
             as="h2"
             id="about-title"
             lines={ABOUT.headline}
-            className="text-[clamp(2.75rem,7.2vw,6.5rem)] leading-[0.9]"
+            className="display-xl"
           />
         </div>
       </div>
@@ -95,30 +95,28 @@ export function About() {
           </div>
         </div>
 
-        <div className="col-span-12 mt-12 lg:col-span-5 lg:col-start-8 lg:mt-0 lg:py-[24svh]">
+        <div className="col-span-12 block-y lg:col-span-5 lg:col-start-8 lg:mt-0 lg:py-[18svh]">
           <Body paragraphs={ABOUT.body} />
 
-          <div className="mt-20 space-y-10 md:mt-28 md:space-y-14">
+          <div className="block-y space-y-[var(--block-y)]">
             {ABOUT.stagger.map((group, i) => (
               <Lines
                 key={group[0]}
                 as="p"
                 lines={group}
-                className={`text-[clamp(1.35rem,2.6vw,2.35rem)] leading-[1.08] ${
-                  i % 2 === 1 ? 'lg:pl-[12%]' : ''
-                }`}
+                className={`display-md ${i % 2 === 1 ? 'lg:pl-[12%]' : ''}`}
               />
             ))}
           </div>
         </div>
       </div>
 
-      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[16svh] pt-[10svh] md:pt-[14svh]">
+      <div className="page-x mx-auto grid w-full max-w-[100rem] grid-cols-12 gap-x-6 pb-[var(--section-y)] pt-[var(--block-y)]">
         <div className="col-span-12 lg:col-span-8 lg:col-start-4">
           <Lines
             as="p"
             lines={ABOUT.closing}
-            className="text-[clamp(2rem,5vw,4.5rem)] leading-[1] text-timber"
+            className="display-lg text-timber"
           />
         </div>
       </div>

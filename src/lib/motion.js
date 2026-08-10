@@ -85,7 +85,7 @@ export function revealIn(scope, { start = 'top 78%', stagger = 0.075 } = {}) {
       const spans = el.querySelectorAll('span')
       // The offset comes from CSS as a matrix, which GSAP reads as yPercent 0.
       // Restating it here is what makes the tween back to 0 actually move.
-      gsap.set(spans, { yPercent: 118, y: 0 })
+      gsap.set(spans, { yPercent: 125, y: 0 })
       tl.to(spans, { yPercent: 0, duration: DUR.line, stagger: 0.06 }, at)
     } else if (el.classList.contains('reveal-mask')) {
       tl.to(el, { clipPath: 'inset(0 0 0% 0)', duration: DUR.mask, ease: EASE.out }, at)

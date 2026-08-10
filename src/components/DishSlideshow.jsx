@@ -75,7 +75,7 @@ export function DishSlideshow({ chapter, tone = 'ivory', preload = false, lead =
     }
 
     gsap.set(frame, { scale: 0.74, clipPath: 'inset(12% 16% 12% 16%)' })
-    gsap.set(lineEls, { yPercent: 118, y: 0 })
+    gsap.set(lineEls, { yPercent: 125, y: 0 })
     gsap.set([titleEl, asideEl], { x: 0 })
     gsap.set(chrome, { opacity: 0 })
 

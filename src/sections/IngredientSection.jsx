@@ -20,10 +20,12 @@ function IngredientCrops({ ingredient }) {
         <Meta className="reveal-fade text-ceramic">{ingredient.meta}</Meta>
       </div>
 
-      {/* The word runs off the left edge, cropped by the viewport. */}
+      {/* Sized to sit inside the gutters at every width. It used to run off the
+          left edge on purpose and be clipped by the section, which cost the
+          first letter on narrow screens. */}
       <h3
         id="hilsa-ingredient-title"
-        className="display mt-6 -ml-[3vw] text-[clamp(5rem,21vw,17rem)] leading-[0.78] text-timber/90 md:-ml-[2vw]"
+        className="page-x display mx-auto mt-6 w-full max-w-[100rem] text-[clamp(3.5rem,17vw,15rem)] leading-[0.95] text-timber/90"
       >
         <span className="reveal-line">
           <span>{ingredient.title}</span>

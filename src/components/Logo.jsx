@@ -67,7 +67,10 @@ export function Logo({ variant = 'inline', className = '', markHeight, lockupWid
   return (
     <span className={`inline-flex items-center gap-2.5 md:gap-3 ${className}`}>
       <Masked asset="mark" height={markHeight ?? 'clamp(1.5rem, 2.2vw, 1.9rem)'} />
-      <Masked asset="wordmark" height="clamp(0.6rem, 0.85vw, 0.75rem)" />
+      {/* Below sm the wordmark is dropped: three navigation items and the full
+          lockup do not both fit in a 390px bar, and the mark alone still reads
+          as Chourangi. The accessible name is unaffected. */}
+      <Masked asset="wordmark" height="clamp(0.6rem, 0.85vw, 0.75rem)" className="hidden sm:block" />
       <span className="sr-only">{SITE.name}</span>
     </span>
   )

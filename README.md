@@ -58,11 +58,31 @@ src/
     primitives.jsx  Figure, Lines, Meta, Body, Caption, ArrowLink
   sections/
     DishSection, IngredientSection, CultureSection,
-    InterpretationSection, About, Closing
+    InterpretationSection, About, Feedback, Closing
 ```
 
 The four chapter section types each carry three layouts, selected by chapter index, so
 Hilsa, Gondhoraj and Railway never repeat the same composition.
+
+## Feedback form
+
+`Leave your Thoughts` posts JSON to `FEEDBACK.endpoint` in `src/data/content.js`.
+That field ships **empty**, which is the one thing standing between the form and
+working. Paste a handler that accepts a JSON POST — a Formspree endpoint
+(`https://formspree.io/f/xxxx`), Web3Forms, or your own — and submissions start
+arriving:
+
+```js
+export const FEEDBACK = {
+  endpoint: 'https://formspree.io/f/your-id',
+  ...
+```
+
+The payload is `{ name, about, thoughts, page }`.
+
+While the endpoint is empty the form validates and behaves normally but does
+**not** thank anyone on submit. It says plainly that notes are not being
+collected, rather than swallowing a guest's words behind a success message.
 
 ## Design system
 

@@ -134,6 +134,25 @@
   body[data-cursor='on'] * {
     cursor: none;
   }
+
+  /* ...but never over a form control. Without the caret a text field looks
+     unresponsive, and a select gives no affordance that it opens. */
+  body[data-cursor='on'] :is(input, textarea) {
+    cursor: text;
+  }
+  body[data-cursor='on'] :is(select, option, button:not(:disabled)) {
+    cursor: pointer;
+  }
+
+  /* The date/select chevron and autofill wash both fight the palette. */
+  select {
+    appearance: none;
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: currentColor;
+    transition: background-color 9999s;
+  }
 }
 
 /* --------------------------------------------------------------- utilities */

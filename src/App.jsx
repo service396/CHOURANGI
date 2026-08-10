@@ -7,6 +7,7 @@ import { IngredientSection } from './sections/IngredientSection'
 import { CultureSection } from './sections/CultureSection'
 import { InterpretationSection } from './sections/InterpretationSection'
 import { About } from './sections/About'
+import { Feedback } from './sections/Feedback'
 import { Closing, Footer } from './sections/Closing'
 import { useSmoothScroll } from './lib/useSmoothScroll'
 import { ScrollTrigger, useReducedMotion } from './lib/motion'
@@ -66,6 +67,7 @@ export default function App() {
         ))}
 
         <About />
+        <Feedback />
         <Closing />
       </main>
 

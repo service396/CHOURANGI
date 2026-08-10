@@ -184,7 +184,7 @@ export function Nav() {
       </a>
 
       <nav aria-label="Primary">
-        <ul className="flex items-center gap-4 sm:gap-6 md:gap-10">
+        <ul className="flex items-center gap-3.5 sm:gap-6 md:gap-8 lg:gap-10">
           {/* Stories opens the three dishes rather than jumping to one of them. */}
           <li>
             <button

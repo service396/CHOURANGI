@@ -14,13 +14,17 @@ export const SITE = {
 // Stories is rendered separately as a dropdown over the three dishes.
 // `short` is used below the md breakpoint, where full labels collide.
 // No booking link: this page is read at the table, in the restaurant.
-export const NAV = [{ label: 'About', short: 'About', href: '#about' }]
+export const NAV = [
+  { label: 'About', short: 'About', href: '#about' },
+  { label: 'Leave your Thoughts', short: 'Thoughts', href: '#thoughts' },
+]
 
 export const CHAPTERS = [
   { id: 'hilsa', number: '01', label: 'Hilsa' },
   { id: 'gondhoraj', number: '02', label: 'Gondhoraj' },
   { id: 'railway', number: '03', label: 'Railway' },
   { id: 'about', number: '04', label: 'Chourangi' },
+  { id: 'thoughts', number: '05', label: 'Thoughts' },
 ]
 
 export const HILSA = {
@@ -266,6 +270,50 @@ export const ABOUT = {
     { key: 'heroWide', label: 'Interpretation', note: 'The same instinct, worked out on the plate.' },
     { key: 'londonStreet', label: 'London', note: '3 Old Quebec Street, at the end of the day.' },
   ],
+}
+
+/**
+ * The feedback section.
+ *
+ * `endpoint` is the only thing standing between this form and working. Paste a
+ * form-handler URL that accepts a JSON POST — Formspree (https://formspree.io/f/xxxx),
+ * Web3Forms, or any endpoint of your own — and submissions start arriving.
+ * While it is empty the form deliberately does NOT thank anyone: it says
+ * plainly that nothing is being collected, rather than swallowing a guest's
+ * words and showing a success message anyway.
+ */
+export const FEEDBACK = {
+  endpoint: '',
+  meta: '05 / Your turn',
+  headline: ['Leave your', 'thoughts.'],
+  intro:
+    'If something on the table stayed with you — or did not — we would rather hear it from you than read it somewhere else later.',
+  fields: {
+    name: { label: 'Your name', placeholder: 'Optional', autoComplete: 'name' },
+    dish: {
+      label: 'What are you writing about',
+      options: [
+        'The meal as a whole',
+        'Smoked Hilsa on Toast',
+        'Gondhoraj Pepper Garlic Lobster',
+        'Railway Lamb Curry',
+        'Something else',
+      ],
+    },
+    thoughts: {
+      label: 'Your thoughts',
+      placeholder: 'Write as much or as little as you like.',
+    },
+  },
+  cta: 'Send your thoughts',
+  sending: 'Sending',
+  states: {
+    sent: ['Thank you.', 'It has reached the kitchen.'],
+    sentNote: 'Every note is read. The ones about the cooking reach the pass the same evening.',
+    error: 'That did not send. Please try once more, or tell a member of the team.',
+    unconfigured: 'Notes are not being collected here yet. Please tell a member of the team instead.',
+    required: 'Please write something before sending.',
+  },
 }
 
 export const CLOSING = {

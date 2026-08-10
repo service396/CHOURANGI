@@ -205,11 +205,29 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A blackened smoking pan on oak, a single thin thread of smoke rising and dissolving into shadow.',
   },
+  // A traditional Bengali kitchen, worked at floor level, with a boti — the
+  // curved blade standing upright on its wooden base — rather than the flat
+  // dao the first attempt produced.
   hilsaCulture: {
+    id: 'a19660e0-fa6d-4097-841b-1d886c2552ba',
+    stamp: '20260810_103414',
+    ratio: 3 / 2,
+    alt: 'A traditional Bengali kitchen at floor level: a boti, its curved blade standing upright on a wooden base, beside a whole fresh hilsa laid on newspaper, with a clay chulha and a stone grinding slab behind.',
+  },
+  // The closer alternate of the same scene, unplaced. Swap it into
+  // HILSA.culture.image if the wider view reads too busy.
+  hilsaCultureClose: {
+    id: '0ecc6e76-9d00-4565-852d-b0473365b53c',
+    stamp: '20260810_103414',
+    ratio: 3 / 2,
+    alt: 'A boti standing upright on the red floor of a Bengali kitchen, its curved blade worn smooth, a whole hilsa waiting on newspaper beside it.',
+  },
+  // The first attempt: a flat blade on a table, which is a dao, not a boti.
+  hilsaCultureDao: {
     id: 'decdda72-3fef-438c-a159-9077ac9a040b',
     stamp: '20260808_032510',
     ratio: 3 / 2,
-    alt: 'A whole fresh hilsa on newspaper beside a boti blade on a worn table in a Kolkata home, shuttered window light falling across it.',
+    alt: 'A whole fresh hilsa on newspaper beside a flat blade on a worn table in a Kolkata home, shuttered window light falling across it.',
   },
   // Superseded by the supplied photograph: these show slices of toast, not
   // the rounds the dish is actually served as.

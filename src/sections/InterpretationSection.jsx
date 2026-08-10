@@ -1,4 +1,5 @@
 import { Body, Figure, Lines, Meta, Rule } from '../components/primitives'
+import { Marginalia } from '../components/Marginalia'
 import { gsap, revealIn, useGsap, useReducedMotion } from '../lib/motion'
 
 /**
@@ -35,8 +36,17 @@ function InterpretationPlate({ interpretation, chapterId }) {
         <p className="reveal-fade body-copy mt-8 max-w-[44ch] opacity-80">{interpretation.coda}</p>
       </div>
 
+      {/* The argument column runs a good deal longer than one 4:5 plate, so
+          this column ends early. The drawing of the plated rounds closes it:
+          the same dish the section is about, in the other register. */}
       <div className="col-span-12 lg:col-span-5 lg:col-start-8">
         <Figure name={interpretation.image} ratio={4 / 5} sizes="(max-width: 1024px) 100vw, 40vw" />
+        <Marginalia
+          name="inkPlatter"
+          opacity={0.5}
+          drift={30}
+          className="mt-[var(--block-y)] ml-auto hidden w-[15vw] max-w-[13rem] lg:block"
+        />
       </div>
     </section>
   )
@@ -165,11 +175,19 @@ function InterpretationStack({ interpretation, chapterId }) {
       </ul>
 
       <div className="page-x mx-auto block-y grid w-full max-w-[100rem] grid-cols-12 gap-x-6">
+        {/* The plate opposite is 4:5 across six columns and far taller than
+            two lines of statement, so this column is empty beneath it. The
+            whole spices sit there, opposite the finished dish they went into. */}
         <div className="col-span-12 md:col-span-5">
           <Lines
             as="p"
             lines={interpretation.statement}
             className="display-lg text-timber"
+          />
+          <Marginalia
+            name="inkSpicePile"
+            opacity={0.55}
+            className="mt-[var(--block-y)] hidden w-[16vw] max-w-[15rem] md:block"
           />
         </div>
         <div className="col-span-12 block-y md:col-span-6 md:col-start-7 md:mt-0">

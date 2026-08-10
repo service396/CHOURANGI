@@ -1,4 +1,5 @@
 import { Caption, Figure, Lines, Meta } from '../components/primitives'
+import { Marginalia } from '../components/Marginalia'
 import { revealIn, useGsap } from '../lib/motion'
 
 const TONES = {
@@ -19,14 +20,22 @@ function CultureQuiet({ culture, chapterId, tone }) {
 
   return (
     <section ref={scope} data-tone={tone.nav} aria-labelledby={`${chapterId}-culture-title`} className={tone.surface}>
-      {/* One screen, one label, one statement. Nothing else. */}
-      <div className="page-x mx-auto flex min-h-[78svh] w-full max-w-[100rem] flex-col justify-center pt-[var(--section-y)] pb-[var(--block-y)]">
+      {/* One screen, one label, one statement. Nothing else — except that the
+          headline is held to 16ch, so the right of this screen is empty at
+          desktop widths. The hilsa is drawn into it: this is the chapter about
+          what the fish means, and the monsoon is when it is eaten. */}
+      <div className="page-x relative mx-auto flex min-h-[78svh] w-full max-w-[100rem] flex-col justify-center pt-[var(--section-y)] pb-[var(--block-y)]">
         <Meta className={`reveal-fade mb-[var(--meta-gap)] ${tone.accent}`}>{culture.meta}</Meta>
         <Lines
           as="h3"
           id={`${chapterId}-culture-title`}
           lines={culture.headline}
           className="display-xl max-w-[16ch]"
+        />
+        <Marginalia
+          name="inkHilsa"
+          opacity={0.5}
+          className="absolute right-[var(--gutter-right)] top-1/2 hidden w-[22vw] max-w-[20rem] -translate-y-1/2 lg:block"
         />
       </div>
 
@@ -155,13 +164,29 @@ function CultureExpanse({ culture, chapterId, tone }) {
         </div>
       </div>
 
-      {/* Deliberate emptiness before the closing thought. */}
+      {/* Deliberate emptiness before the closing thought. The statement holds
+          the left and the closing the right, so the centre column stays clear;
+          the tiffin carrier sits in it — the object this chapter's food was
+          actually carried in. */}
       <div className="page-x mx-auto flex min-h-[70svh] w-full max-w-[100rem] flex-col justify-center gap-[var(--block-y)] pb-[var(--section-y)]">
-        <Lines
-          as="p"
-          lines={culture.statement}
-          className="display-md max-w-[18ch] opacity-70"
-        />
+        {/* The statement is held to 18ch, so the rest of its line is empty.
+            The tiffin carrier sits there as a flex sibling rather than at an
+            absolute offset, which is what keeps it off the closing lines
+            below as they reflow. */}
+        <div className="flex items-start justify-between gap-10">
+          <Lines
+            as="p"
+            lines={culture.statement}
+            className="display-md max-w-[18ch] opacity-70"
+          />
+          <Marginalia
+            name="inkTiffin"
+            tone="dark"
+            opacity={0.45}
+            drift={34}
+            className="hidden w-[12vw] max-w-[10rem] shrink-0 lg:block"
+          />
+        </div>
         <Lines
           as="p"
           lines={culture.closing}

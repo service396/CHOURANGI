@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { Body, Caption, Figure, Lines, Meta } from '../components/primitives'
-import { Marginalia } from '../components/Marginalia'
 import { gsap, revealIn, useDesktopPointer, useGsap, useReducedMotion } from '../lib/motion'
 
 /**
@@ -109,13 +108,6 @@ function IngredientMonolith({ ingredient }) {
               <span>{ingredient.title}</span>
             </span>
           </h3>
-          {/* The hero photograph beside this column is far taller than the two
-              lines above, leaving this column empty from here down. */}
-          <Marginalia
-            name="inkGondhoraj"
-            opacity={0.55}
-            className="mt-[var(--block-y)] hidden w-[16vw] max-w-[15rem] lg:block"
-          />
         </div>
 
         <div ref={heroRef} className="col-span-12 mt-10 lg:col-span-8 lg:mt-0">

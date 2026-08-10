@@ -471,49 +471,6 @@ const CATALOGUE = {
     ratio: 4 / 5,
     alt: 'The finished railway lamb curry alone on the oak table, defined pieces of lamb sitting proud of the sauce.',
   },
-
-  // ---------------------------------------------------------------- drawings
-  // Pen-and-ink marginalia, black line on white, drawn to a single house style
-  // so they read as one hand. They are composited with mix-blend-mode rather
-  // than cut out, so the white ground drops away on any surface. Each one
-  // belongs to a specific section; see Marginalia usage.
-  inkHilsa: {
-    id: 'c8836228-0170-4d38-bdd5-d3dd901f3360',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
-  inkPlatter: {
-    id: 'c32f36c5-a4a9-4ff8-8cc4-f5e0ef3b3b9e',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
-  inkGondhoraj: {
-    id: '429b9ddc-d0bf-4e8b-a11e-11106157d19d',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
-  inkSpicePile: {
-    id: '3e07f8d9-4fb0-4b11-910d-4242c1433024',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
-  inkTiffin: {
-    id: 'de5fbf1d-3c0f-4ee7-91d2-06918b8cc37a',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
-  // Unplaced spare, in the same hand.
-  inkSpiceBowls: {
-    id: '50b4d221-4ff7-4d31-8291-3c2a654a956d',
-    stamp: '20260810_125134',
-    ratio: 4 / 5,
-    alt: '',
-  },
 }
 
 /** Every asset, resolved to a usable src plus its metadata. */

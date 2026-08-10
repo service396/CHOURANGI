@@ -205,27 +205,29 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A blackened smoking pan on oak, a single thin thread of smoke rising and dissolving into shadow.',
   },
-  // A clean, well-kept traditional Bengali kitchen with a boti. The blade
-  // geometry is described from the reference: a long flat plank on the floor,
-  // a scythe-like blade rising from one end and curving back over itself,
-  // joined by an iron collar. Two alternates below, unplaced.
+  // Generated image-to-image from the restaurant's reference photograph of a
+  // boti (media 2aa28065-a9a6-42a1-9b6e-09b5da5fbf26), so the tool's shape
+  // comes from the object rather than from a description of it. Two earlier
+  // text-only rounds got the blade wrong. The close profile takes the slot
+  // because it gives the curve the most of the frame; the other two are here
+  // unplaced and swap in with a one line change.
   hilsaCulture: {
-    id: '246b51d8-dcb6-42cc-af40-fe74cd61ba83',
-    stamp: '20260810_104219',
+    id: '1f1848ca-2ff3-4c95-85aa-8e575f02ccfc',
+    stamp: '20260810_115645',
     ratio: 3 / 2,
-    alt: 'A boti in a clean traditional Bengali kitchen: a curved blade rising from a long wooden plank on the floor, a whole fresh hilsa waiting on newspaper beside it.',
+    alt: 'A boti on the swept floor of a clean Bengali kitchen, its curved blade rising from the wooden plank, a whole fresh hilsa waiting on newspaper beside it.',
   },
-  hilsaCultureBotiClose: {
-    id: 'dff95d79-fe52-4219-b5aa-da7f7fc0e09b',
-    stamp: '20260810_104219',
+  hilsaCultureKitchen: {
+    id: 'e15032de-8bf9-49ed-915f-1bb0e0770820',
+    stamp: '20260810_115646',
     ratio: 3 / 2,
-    alt: 'A boti seen close in profile on a swept kitchen floor, its curved blade rising from the plank, a whole hilsa on newspaper beside it.',
+    alt: 'A clean traditional Bengali kitchen with a boti resting on the floor beside a whole hilsa on newspaper, green shutters open to morning light.',
   },
-  hilsaCultureBotiStill: {
-    id: '02b0ab67-e30a-4c7e-9ce8-d7de08a089f9',
-    stamp: '20260810_104219',
+  hilsaCultureStill: {
+    id: 'de9a992b-3680-40a5-a6cc-b0d57676e406',
+    stamp: '20260810_115645',
     ratio: 3 / 2,
-    alt: 'A still life of a boti on a swept kitchen floor with a whole hilsa on newspaper and a brass bowl of water, generous space around them.',
+    alt: 'A still life of a boti on a swept kitchen floor with a whole hilsa on newspaper and a brass bowl of water, generous empty floor around them.',
   },
   // The first attempt: a flat blade on a table, which is a dao, not a boti.
   hilsaCultureDao: {

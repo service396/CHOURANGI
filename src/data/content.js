@@ -79,7 +79,7 @@ export const HILSA = {
     ],
     statement: ['The memory remains.', 'The form changes.'],
     image: 'hilsaCulture',
-    caption: 'A boti and a whole hilsa in a Bengali kitchen, before anything is decided about it.',
+    caption: 'A whole hilsa on brass, and the boti beside it, before anything is decided about it.',
     tone: 'parchment',
   },
   interpretation: {

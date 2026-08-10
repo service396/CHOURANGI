@@ -205,13 +205,40 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A blackened smoking pan on oak, a single thin thread of smoke rising and dissolving into shadow.',
   },
-  // Generated image-to-image from the restaurant's reference photograph of a
-  // boti (media 2aa28065-a9a6-42a1-9b6e-09b5da5fbf26), so the tool's shape
-  // comes from the object rather than from a description of it. Two earlier
-  // text-only rounds got the blade wrong. The close profile takes the slot
-  // because it gives the curve the most of the frame; the other two are here
-  // unplaced and swap in with a one line change.
+  // Generated image-to-image from two references: the previous kitchen frame,
+  // which carries the room, palette and light, and the restaurant's own
+  // photograph of a boti (media 2aa28065-a9a6-42a1-9b6e-09b5da5fbf26), so the
+  // tool's shape comes from the object rather than from a description of it.
+  // The fish now sits on a brass thala rather than newspaper, and is scaled to
+  // a full-grown hilsa of roughly two and a half kilos. Four compositions were
+  // made; the others are here unplaced and swap in with a one line change.
   hilsaCulture: {
+    id: '97ba1bf7-52dd-4137-a10b-e217e8343670',
+    stamp: '20260810_123620',
+    ratio: 3 / 2,
+    alt: 'A whole hilsa of about two and a half kilos laid on a broad hand-beaten brass thala on a swept red oxide floor, the curved blade of a boti standing beside it and a brass water pot against the lime-washed wall behind.',
+  },
+  hilsaCultureRaised: {
+    id: 'dde4daa1-9e1f-4277-b1a9-e6310d56554d',
+    stamp: '20260810_123620',
+    ratio: 3 / 2,
+    alt: 'A raised three-quarter view of a large hilsa filling a brass thala, its tail curving over the rim, with a boti and a brass kalsi set back against a pale green wall.',
+  },
+  hilsaCultureClose: {
+    id: '59ca3f7f-98c6-4df7-a2eb-5c3c8a0ed5d7',
+    stamp: '20260810_123620',
+    ratio: 3 / 2,
+    alt: 'A close, low view of an imposing hilsa on an antique brass thala, the curved blade of a boti rising softly out of focus behind it.',
+  },
+  hilsaCultureWide: {
+    id: 'c8572023-76db-41b9-9dda-97fd79cd6ca3',
+    stamp: '20260810_123620',
+    ratio: 3 / 2,
+    alt: 'A wide, formal still life of a hilsa on a brass thala and a boti on a swept red oxide floor, a band of daylight falling from an open shuttered window.',
+  },
+  // Superseded: the fish lay on newspaper rather than on brass, and read as a
+  // market-size hilsa rather than a whole one of two and a half kilos.
+  hilsaCultureNewsprint: {
     id: '1f1848ca-2ff3-4c95-85aa-8e575f02ccfc',
     stamp: '20260810_115645',
     ratio: 3 / 2,

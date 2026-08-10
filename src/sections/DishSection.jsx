@@ -56,7 +56,7 @@ function DishPinned({ dish }) {
           as="h3"
           id="hilsa-dish-title"
           lines={dish.headline}
-          className="display-lg"
+          className="display-lg mb-[var(--block-y)]"
         />
         <Body paragraphs={dish.body} />
         <div className="block-y">

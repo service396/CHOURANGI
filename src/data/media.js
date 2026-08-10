@@ -1,23 +1,47 @@
 /**
  * Chourangi asset manifest.
  *
- * Every image on this site is an original asset generated through the Higgsfield
- * MCP for this project. Nothing here is stock photography or a placeholder.
+ * Two kinds of image live here.
  *
- * Each entry records the Higgsfield job id (the media id), the source aspect
- * ratio it was generated at, the remote CDN URL, and the alt text used in the page.
+ * PHOTOGRAPHS supplied by the restaurant sit in `src/assets/dishes/` and are
+ * imported, so the bundler emits a URL that resolves wherever the site is
+ * deployed. These are the real dishes and always outrank a generated stand-in.
  *
- * By default images are served from the Higgsfield CDN. Run `npm run vendor:assets`
- * to download every asset into `public/media/` and write `.env.local` with
- * VITE_LOCAL_MEDIA=true, after which the site serves them locally instead.
+ * GENERATED assets were produced through the Higgsfield MCP for this project —
+ * no stock, no placeholders. Each records its job id (the media id), the aspect
+ * ratio it was generated at, and its CDN URL. They serve from the CDN by
+ * default; `npm run vendor:assets` downloads them into `public/media/` and
+ * writes VITE_LOCAL_MEDIA=true so they serve locally instead.
+ *
+ * To swap in a new photograph: drop the file in `src/assets/dishes/`, import it
+ * below, and point the entry's `file` at it. Nothing else changes.
  */
+
+import hilsaRealSrc from '../assets/dishes/smoked-hilsa-on-toast.jpg'
+import hilsaRealPortraitSrc from '../assets/dishes/smoked-hilsa-on-toast-portrait.jpg'
 
 const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_2ySKJ8MEgBvVjIYyNHGj08B4Ecb'
 
 const USE_LOCAL = import.meta.env.VITE_LOCAL_MEDIA === 'true'
 
-/** @type {Record<string, {id: string, stamp: string, ratio: number, alt: string}>} */
+/** Real photography, imported so Vite owns the URL. `file` beats `id`. */
+const PHOTOGRAPHS = {
+  hilsaReal: {
+    file: hilsaRealSrc,
+    ratio: 4 / 3,
+    alt: 'Three rounds of smoked hilsa on crisp discs, laid along a banana leaf across a deep blue glazed Chourangi plate, each scattered with nigella and topped with a micro-herb.',
+  },
+  hilsaRealPortrait: {
+    file: hilsaRealPortraitSrc,
+    ratio: 4 / 5,
+    alt: 'A close view of the smoked hilsa, the front round sharp against the blue glazed plate, nigella seeds through the fish and a micro-herb on top.',
+  },
+}
+
+/** @type {Record<string, {id?: string, stamp?: string, ratio: number, alt: string}>} */
 const CATALOGUE = {
+  ...PHOTOGRAPHS,
+
   // ---------------------------------------------------------------- Chourangi
   // Generated for the opening section, which has since been removed. Kept so
   // the asset stays one line from reuse rather than being regenerated.
@@ -78,24 +102,32 @@ const CATALOGUE = {
   },
 
   // -------------------------------------------------------------------- Hilsa
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   hilsaMaster: {
     id: '39100413-9ce5-48df-913d-d2df6841f997',
     stamp: '20260808_032206',
     ratio: 3 / 2,
     alt: 'Smoked hilsa on toast at Chourangi: three slices of toast on a blue glazed plate under flaked smoked fish, dark barbecue glaze and black nigella seeds.',
   },
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   hilsaWide: {
     id: '3d7757d0-5bd8-4cc4-b188-87bfb0c0ad85',
     stamp: '20260808_032510',
     ratio: 16 / 9,
     alt: 'The smoked hilsa on toast seen wide on the Chourangi table, a cane-backed chair and cream wall soft behind it.',
   },
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   hilsaClose: {
     id: '8510814b-9e33-49fa-9d58-7e5ce037eb40',
     stamp: '20260808_032510',
     ratio: 4 / 5,
     alt: 'A close portrait of one slice of smoked hilsa on toast, the flaked fish and dark glaze sharp, the plate falling away behind.',
   },
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   hilsaOverhead: {
     id: '5428716f-5a53-42db-b37a-8311871c3992',
     stamp: '20260808_032741',
@@ -114,6 +146,8 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'Matte black nigella seeds spilling from a small brass dish across bare oak grain.',
   },
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   toastMacro: {
     id: '047e0835-5c51-4dc5-96d3-4c3a35244ce4',
     stamp: '20260808_032510',
@@ -132,6 +166,8 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A whole fresh hilsa on newspaper beside a boti blade on a worn table in a Kolkata home, shuttered window light falling across it.',
   },
+  // Superseded by the supplied photograph: these show slices of toast, not
+  // the rounds the dish is actually served as.
   hilsaFinal: {
     id: '76900810-d787-40fa-9942-ea516f595f16',
     stamp: '20260808_032510',
@@ -267,17 +303,12 @@ const CATALOGUE = {
 /** Every asset, resolved to a usable src plus its metadata. */
 export const MEDIA = Object.fromEntries(
   Object.entries(CATALOGUE).map(([key, entry]) => {
+    // A supplied photograph carries its own bundled URL and needs no CDN path.
+    if (entry.file) return [key, { ...entry, key, src: entry.file, remote: entry.file }]
+
     const file = `${key}.png`
-    return [
-      key,
-      {
-        ...entry,
-        key,
-        file,
-        remote: `${CDN}/hf_${entry.stamp}_${entry.id}.png`,
-        src: USE_LOCAL ? `/media/${file}` : `${CDN}/hf_${entry.stamp}_${entry.id}.png`,
-      },
-    ]
+    const remote = `${CDN}/hf_${entry.stamp}_${entry.id}.png`
+    return [key, { ...entry, key, file, remote, src: USE_LOCAL ? `/media/${file}` : remote }]
   }),
 )
 

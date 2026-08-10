@@ -34,13 +34,16 @@ export const HILSA = {
   card: {
     title: 'Smoked Hilsa on Toast',
     line: 'Mashed hilsa · barbecue sauce · nigella',
-    image: 'hilsaMaster',
+    image: 'hilsaReal',
   },
   slideshow: {
     counter: '01 / Three dishes',
     title: ['Smoked', 'Hilsa', 'on Toast'],
     line: 'Mashed hilsa · barbecue sauce · nigella',
-    slides: ['hilsaWide', 'hilsaClose', 'hilsaOverhead', 'hilsaFleshMacro', 'smokeDetail'],
+    // The real photograph opens the sequence. The generated plating shots that
+    // used to sit here showed a different dish — slices of toast rather than
+    // rounds — so they are out; the macros that follow still hold.
+    slides: ['hilsaReal', 'hilsaFleshMacro', 'nigellaMacro', 'smokeDetail'],
   },
   dish: {
     meta: '01.1 / Dish',
@@ -50,7 +53,7 @@ export const HILSA = {
       'At Chourangi, that familiar flavour takes an unexpected form. The hilsa is smoked, mashed and layered onto toast, creating something immediately recognisable in spirit, yet completely different in presentation.',
     ],
     statement: ['A Bengali favourite,', 'seen through a new frame.'],
-    images: { primary: 'hilsaClose', secondary: 'toastMacro' },
+    images: { primary: 'hilsaRealPortrait', secondary: 'hilsaFleshMacro' },
   },
   ingredient: {
     meta: '01.2 / Ingredient',
@@ -64,7 +67,7 @@ export const HILSA = {
     images: [
       { key: 'hilsaFleshMacro', caption: 'Smoked, then broken by hand' },
       { key: 'nigellaMacro', caption: 'Nigella / kalonji' },
-      { key: 'toastMacro', caption: 'Char at the crust' },
+      { key: 'smokeDetail', caption: 'Smoke, before it meets the fish' },
     ],
   },
   culture: {
@@ -89,7 +92,7 @@ export const HILSA = {
     ],
     statement: ['Nothing attempts to disguise the hilsa.'],
     coda: 'The presentation simply gives a familiar flavour permission to behave differently.',
-    image: 'hilsaFinal',
+    image: 'hilsaReal',
   },
 }
 

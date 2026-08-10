@@ -36,7 +36,9 @@ function InterpretationPlate({ interpretation, chapterId }) {
       </div>
 
       <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-        <Figure name={interpretation.image} ratio={4 / 5} sizes="(max-width: 1024px) 100vw, 40vw" />
+        {/* No ratio override: the supplied photograph is landscape and cropping
+            it to a portrait slot would lose two of the three rounds. */}
+        <Figure name={interpretation.image} sizes="(max-width: 1024px) 100vw, 40vw" />
       </div>
     </section>
   )

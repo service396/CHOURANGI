@@ -205,14 +205,42 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A blackened smoking pan on oak, a single thin thread of smoke rising and dissolving into shadow.',
   },
-  // Generated image-to-image from two references: the previous kitchen frame,
-  // which carries the room, palette and light, and the restaurant's own
-  // photograph of a boti (media 2aa28065-a9a6-42a1-9b6e-09b5da5fbf26), so the
-  // tool's shape comes from the object rather than from a description of it.
-  // The fish now sits on a brass thala rather than newspaper, and is scaled to
-  // a full-grown hilsa of roughly two and a half kilos. Four compositions were
-  // made; the others are here unplaced and swap in with a one line change.
+  // Built up over three image-to-image rounds, each one taking the previous
+  // frame plus the restaurant's own photograph of a boti (media
+  // 2aa28065-a9a6-42a1-9b6e-09b5da5fbf26) so the tool keeps the shape of the
+  // real object rather than of a description of it. The fish moved from
+  // newspaper onto a brass thala and grew to a full two and a half kilos; this
+  // round fixes the boti, which had come out the size of a hand tool rather
+  // than the floor tool a cook sits on, and relights the scene. Four lighting
+  // treatments were made; the others sit here unplaced and swap in with a one
+  // line change.
   hilsaCulture: {
+    id: 'caa3918e-0a22-4ecb-95d1-49b61c21c3ea',
+    stamp: '20260810_124308',
+    ratio: 3 / 2,
+    alt: 'A whole hilsa of about two and a half kilos on a broad brass thala, a full floor boti standing beside it with its curved blade rising above the plate, a low shaft of morning sun raking across the red oxide floor.',
+  },
+  hilsaCultureLowKey: {
+    id: 'd78228f1-1564-459c-b810-f83fc19ff2f1',
+    stamp: '20260810_124308',
+    ratio: 3 / 2,
+    alt: 'A low-key still life: one pool of warm daylight on a brass thala and the silver flanks of a great hilsa, the tall blade of a boti standing in shadow behind.',
+  },
+  hilsaCultureAfternoon: {
+    id: '36d8d05a-f548-4430-99ed-40f1b1bc4591',
+    stamp: '20260810_124308',
+    ratio: 3 / 2,
+    alt: 'Late afternoon light through a shuttered window drawing long shadows of a boti and a brass thala across a swept red oxide floor, a whole hilsa on the brass.',
+  },
+  hilsaCultureBacklit: {
+    id: '3cc196e8-2448-484c-83ae-e01892b85afc',
+    stamp: '20260810_124308',
+    ratio: 3 / 2,
+    alt: 'A backlit hilsa on brass, its silver flanks and the curved edge of the boti traced in daylight while their forms stay dark and sculptural.',
+  },
+  // Superseded: the boti came out far smaller than the fish, and the light was
+  // even rather than cinematic.
+  hilsaCultureFlat: {
     id: '97ba1bf7-52dd-4137-a10b-e217e8343670',
     stamp: '20260810_123620',
     ratio: 3 / 2,

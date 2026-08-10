@@ -24,7 +24,13 @@ const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_2ySKJ8MEgBvVjIYyNHGj08B4E
 
 const USE_LOCAL = import.meta.env.VITE_LOCAL_MEDIA === 'true'
 
-/** Real photography, imported so Vite owns the URL. `file` beats `id`. */
+/**
+ * Real photography, imported so Vite owns the URL. `file` beats `id`.
+ *
+ * These are the reference frames the Hilsa chapter's enhanced set was generated
+ * from. They are no longer rendered — the enhanced set holds the same dish under
+ * better light — but they stay here as the source of truth for that chapter.
+ */
 const PHOTOGRAPHS = {
   hilsaReal: {
     file: hilsaRealSrc,
@@ -101,6 +107,44 @@ const CATALOGUE = {
     alt: 'Two small seated brass musician figures with turquoise inlay on a marble ledge, reflected in the dark window glass behind.',
   },
 
+  // --------------------------------------------- Hilsa, from the supplied photo
+  // Generated image-to-image from the restaurant's own photograph
+  // (src/assets/dishes/smoked-hilsa-on-toast.jpg, imported as media
+  // a323f9ce-c6be-45c1-b4af-cb24c2aec20c). The dish is held exactly: the blue
+  // glazed oval, the three crisp rounds, the shredded smoked hilsa, the nigella,
+  // the micro-herb, the banana leaf. Only the photography changed — the bright
+  // cluttered daylight behind the original gives way to a warm interior.
+  hilsaEnhPlate: {
+    id: 'a81ef440-44a8-4c15-a7cc-16ec668dfe61',
+    stamp: '20260810_095455',
+    ratio: 4 / 5,
+    alt: 'Smoked hilsa on toast at Chourangi: three crisp rounds under mounds of shredded smoked hilsa on a deep blue glazed oval plate, nigella through the fish and a micro-herb on each.',
+  },
+  hilsaEnhWide: {
+    id: 'e0927bda-c90b-4dce-bf27-86f5458e2b97',
+    stamp: '20260810_095455',
+    ratio: 16 / 9,
+    alt: 'The smoked hilsa plate seen wide on a warm stone table, a brass bowl and folded napkin soft beside it and the restaurant falling into shadow behind.',
+  },
+  hilsaEnhClose: {
+    id: '0e8f5c3e-1149-4c4f-a521-5c52579c3a88',
+    stamp: '20260810_095455',
+    ratio: 4 / 5,
+    alt: 'A close portrait of one round of smoked hilsa, the strands of fish and the nigella sharp, the micro-herb standing at the top.',
+  },
+  hilsaEnhOverhead: {
+    id: '43383015-47ab-4f05-9cfa-d5c74313c0c6',
+    stamp: '20260810_095455',
+    ratio: 3 / 2,
+    alt: 'The smoked hilsa plate from directly above, set off-centre with a brass bowl and a scatter of nigella seeds apart from it.',
+  },
+  hilsaEnhMacro: {
+    id: 'adbc942d-4c00-4f26-a979-541cae782c20',
+    stamp: '20260810_095455',
+    ratio: 4 / 5,
+    alt: 'A macro of the smoked hilsa itself, fine strands interleaving with spiced oil gathering between them and nigella seeds resting on the surface.',
+  },
+
   // -------------------------------------------------------------------- Hilsa
   // Superseded by the supplied photograph: these show slices of toast, not
   // the rounds the dish is actually served as.
@@ -134,6 +178,7 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A top-down view of the smoked hilsa plate on bare oak, a brass bowl of sauce and a dish of nigella set apart from it.',
   },
+  // Superseded by hilsaEnhMacro, which is the real fish rather than an invention.
   hilsaFleshMacro: {
     id: 'ec0ac110-570c-4359-a2d5-c1aa1a33168f',
     stamp: '20260808_032510',

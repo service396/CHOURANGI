@@ -237,31 +237,77 @@ const CATALOGUE = {
     alt: 'The finished Gondhoraj lobster alone on the oak table, the half lobster sitting proud of the ghee rice.',
   },
 
+  // ------------------------------------------- Railway, from the supplied photo
+  // Generated image-to-image from the restaurant's own photograph of the dish
+  // (media 21769596-9bbe-4cda-a0b4-05fd0cae84fa), so the brass katori, the
+  // bone-in meat, the marrow bones, the coriander and the hessian are the real
+  // ones. The book in the original was removed at the prompt.
+  railwayBrassPlate: {
+    id: 'f60211ab-9f19-4695-bb83-42944bbf44d0',
+    stamp: '20260810_093621',
+    ratio: 4 / 5,
+    alt: 'The railway curry in an aged brass bowl on woven hessian, bone-in meat under fresh coriander with two marrow bones standing out of the sauce.',
+  },
+  railwayBrassWide: {
+    id: '4734d906-14ef-4584-9be3-756e937754a7',
+    stamp: '20260810_093621',
+    ratio: 16 / 9,
+    alt: 'The brass bowl of railway curry seen wide on the hessian cloth, a small brass bowl and folded cloth soft behind it.',
+  },
+  railwayBrassClose: {
+    id: 'e96d4d66-eaa6-4ff9-af7b-97a9a46f236a',
+    stamp: '20260810_093621',
+    ratio: 4 / 5,
+    alt: 'A close portrait of one bone-in piece of the railway curry with a marrow bone beside it, the meat falling away under dark spice-stained sauce.',
+  },
+  railwayBrassOverhead: {
+    id: 'eabb5e77-1690-4ae9-b589-9a87fa829ff3',
+    stamp: '20260810_093621',
+    ratio: 3 / 2,
+    alt: 'The brass bowl of railway curry from directly above, set off-centre on hessian with a brass spoon and loose whole spices apart from it.',
+  },
+  railwayBrassMacro: {
+    id: 'a2f93899-6410-4e4b-aee2-518d2e2d1697',
+    stamp: '20260810_093621',
+    ratio: 4 / 5,
+    alt: 'A macro of the braised meat pulled from the bone, long fibres separating with spice-heavy sauce clinging between them.',
+  },
+
   // ------------------------------------------------------------------ Railway
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   railwayMaster: {
     id: '915cff50-e961-4d07-b323-c7cfd6041bda',
     stamp: '20260808_032206',
     ratio: 3 / 2,
     alt: 'Railway lamb curry at Chourangi: slow-braised lamb in a deep russet curry with black cardamom and ginger in a blue glazed bowl, naan beside it.',
   },
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   railwayWide: {
     id: '5ddc1c71-3658-467e-a6ed-19995a508cd4',
     stamp: '20260808_032623',
     ratio: 16 / 9,
     alt: 'The railway lamb curry seen wide on the Chourangi table with folded naan and a brass bowl of tamarind.',
   },
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   railwayClose: {
     id: '4e7fb8ad-5b08-4f88-abaf-d500ed8db555',
     stamp: '20260808_032623',
     ratio: 4 / 5,
     alt: 'A close portrait of one piece of braised lamb rising out of the curry, a whole black cardamom pod resting against it.',
   },
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   railwayOverhead: {
     id: 'f768acc1-a28c-4cfe-b1c1-fc7b35a72581',
     stamp: '20260808_032623',
     ratio: 3 / 2,
     alt: 'A top-down view of the curry bowl on bare oak with naan, tamarind, whole black cardamom, ginger and a glass of chai set apart.',
   },
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   lambMacro: {
     id: '662577a2-e71e-446e-a1e9-332f627aa2e9',
     stamp: '20260808_032623',
@@ -292,6 +338,8 @@ const CATALOGUE = {
     ratio: 3 / 2,
     alt: 'A reconstruction of an Indian railway dining carriage in motion, a laid window table and the landscape outside blurred by movement.',
   },
+  // Superseded by the photograph-derived set: this shows boneless lamb in a
+  // blue ceramic bowl, not the bone-in dish in the brass katori.
   railwayFinal: {
     id: '1c24a30f-6160-415f-9069-45cc912c32ec',
     stamp: '20260808_032623',

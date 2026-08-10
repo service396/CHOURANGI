@@ -20,12 +20,22 @@ rebuilds and republishes on every push.
 
 ## Photography
 
-Every image is an original asset generated for this project through the Higgsfield MCP.
-There is no stock photography, no Unsplash and no placeholder anywhere in the page.
+No stock, no Unsplash, no placeholders. Two kinds of image sit on the page.
 
-Each dish was built from one approved master image, and the rest of that dish's set was
-generated image-to-image from that master so plating, crockery, garnish, lighting
-direction and colour grade stay identical across the chapter.
+**Restaurant photographs** are the truth about a dish and outrank anything generated.
+They live in `src/assets/dishes/` and are imported, so the bundler emits URLs that
+resolve wherever the site is served from. Smoked Hilsa on Toast uses one directly.
+
+**Generated assets** were produced through the Higgsfield MCP for this project, from a
+single approved master per dish, with the rest of that dish's set derived image-to-image
+so plating, crockery, garnish, lighting and colour grade stay identical across a chapter.
+The Railway chapter's set was generated image-to-image from the restaurant's own
+photograph of the dish, which is why it shows a brass katori rather than the blue
+ceramic of the other two.
+
+Where a photograph and a generated image disagreed about a dish, the generated one was
+retired. Retired entries stay in the manifest, marked, so they remain one line from
+reuse.
 
 `src/data/media.js` is the single manifest. Each entry records the Higgsfield job id
 (the media id), the aspect ratio it was generated at, the CDN URL and the alt text.

@@ -180,13 +180,15 @@ export const RAILWAY = {
   card: {
     title: 'Railway Lamb Curry',
     line: 'Braised lamb · black cardamom · fennel · tamarind · ginger',
-    image: 'railwayMaster',
+    image: 'railwayBrassPlate',
   },
   slideshow: {
     counter: '03 / Three dishes',
     title: ['Railway', 'Lamb', 'Curry'],
     line: 'Braised lamb · black cardamom · fennel · tamarind · ginger',
-    slides: ['railwayWide', 'railwayClose', 'cardamomMacro', 'railwayOverhead', 'railwayCulture'],
+    // Built from the restaurant's own photograph of the dish. The generated
+    // plating shots this replaced showed boneless lamb in blue ceramic.
+    slides: ['railwayBrassWide', 'railwayBrassClose', 'cardamomMacro', 'railwayBrassOverhead', 'railwayCulture'],
   },
   dish: {
     meta: '03.1 / Dish',
@@ -197,7 +199,7 @@ export const RAILWAY = {
     ],
     statement: ['It is hearty food', 'with a sense of movement behind it.'],
     coda: 'A dish whose very name carries the romance of the railway.',
-    images: { primary: 'railwayClose', secondary: 'lambMacro' },
+    images: { primary: 'railwayBrassClose', secondary: 'railwayBrassMacro' },
   },
   ingredient: {
     meta: '03.2 / Ingredient',
@@ -214,7 +216,7 @@ export const RAILWAY = {
       { key: 'cardamomMacro', label: 'Black cardamom', note: 'Smoke, dried and resinous' },
       { key: 'fennelGinger', label: 'Fennel & ginger', note: 'Sweetness, then warmth' },
       { key: 'tamarindMacro', label: 'Tamarind', note: 'A clean sour edge' },
-      { key: 'lambMacro', label: 'Braised lamb', note: 'Fibres that give way' },
+      { key: 'railwayBrassMacro', label: 'Braised lamb', note: 'Fibres that give way' },
     ],
   },
   culture: {
@@ -245,7 +247,7 @@ export const RAILWAY = {
       'Ginger carries warmth through the finish.',
     ],
     statement: ['It feels travelled,', 'but not dated.'],
-    image: 'railwayFinal',
+    image: 'railwayBrassPlate',
   },
 }
 
